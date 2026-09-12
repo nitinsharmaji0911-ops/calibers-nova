@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+    overflow-x: clip;
+    width: 100%;
+  }
+  
+  body {
+    background-color: #140407;
+    color: #F5F3ED;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: clip;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    overflow-x: clip;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #140407;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #380f1a;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FFD21F;
+  }
+}
+
+/* Handwritten annotation styling */
+.handwriting {
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle glow utilities */
+.glow-yellow-sm {
+  box-shadow: 0 0 20px rgba(255, 210, 31, 0.2);
+}
+
+.glow-yellow-md {
+  box-shadow: 0 0 35px rgba(255, 210, 31, 0.28);
+}
+
+.glow-yellow-lg {
+  box-shadow: 0 0 60px rgba(255, 210, 31, 0.35);
+}
+
+/* Card hover transitions */
+.bento-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 210, 31, 0.3);
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(24, 4, 9, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.glass-card {
+  background: rgba(34, 8, 16, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Safe-area insets positioning for notched devices & floating headers */
+.fixed-safe-top {
+  top: calc(env(safe-area-inset-top, 0px) + 0.65rem);
+}
+
+@media (min-width: 640px) {
+  .fixed-safe-top {
+    top: 1rem; /* 16px on tablet/desktop */
+  }
+}
+
+.hero-safe-pt {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 4.5rem);
+}
+
+@media (min-width: 640px) {
+  .hero-safe-pt {
+    padding-top: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-safe-pt {
+    padding-top: 6.25rem;
+  }
+}
+
+/* Vertical marquee animations matching Tharun Speaks review wall */
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee-up-slow {
+  animation: marquee-up 38s linear infinite;
+}
+
+.animate-marquee-down-slow {
+  animation: marquee-down 42s linear infinite;
+}
+
+.animate-marquee-up-fast {
+  animation: marquee-up 34s linear infinite;
+}
+
+.animate-marquee-down-fast {
+  animation: marquee-down 46s linear infinite;
+}
+
+.pause-hover:hover {
+  animation-play-state: paused;
+}
+
+/* Gradient fade mask top and bottom */
+.mask-marquee-vertical {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+/* Horizontal marquee animations for highlights */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-left-slow {
+  animation: marquee-left 35s linear infinite;
+}
+
+/* Horizontal gradient fade mask */
+.mask-marquee-horizontal {
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+
