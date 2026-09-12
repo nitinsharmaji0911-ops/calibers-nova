@@ -187,6 +187,44 @@
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
+/* Mathematically seamless two-track infinite glide for cards */
+@keyframes marquee-glide-forward {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes marquee-glide-reverse {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-marquee-cards {
+  animation: marquee-glide-forward 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-cards-fast {
+  animation: marquee-glide-forward 16s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-cards-reverse {
+  animation: marquee-glide-reverse 28s linear infinite;
+  will-change: transform;
+}
+
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
@@ -197,5 +235,6 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
 
 
