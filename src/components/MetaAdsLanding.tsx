@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Phone,
   MessageCircle,
@@ -7,6 +7,8 @@ import {
   Star,
   MapPin,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   ArrowRight,
   ShieldCheck,
   Award,
@@ -63,37 +65,63 @@ const toppers = [
   },
 ];
 
-// Life @ Nova GMB Highlights
+// Life @ Nova GMB Highlights - Authentic Nagpur Campus Cards
 const highlights = [
   {
+    id: 1,
     title: 'Flagship Mahal Campus',
-    subtitle: 'Natraj Tower • Central Nagpur',
+    subtitle: 'Natraj Tower • Central Nagpur Hub',
     tag: 'CAMPUS',
     img: '/assets/gmb_photo_2.jpg',
+    detail: 'Centrally located on Mahal main road, fully air-conditioned acoustic classrooms with modern smart boards.',
   },
   {
-    title: 'Focused Concept Lectures',
-    subtitle: 'Under "जीत की ज़िद" Philosophy',
+    id: 2,
+    title: 'High-Attention Classroom',
+    subtitle: 'Under "जीत की ज़िद" Pedagogy',
     tag: 'CLASSROOM',
     img: '/assets/gmb_photo_1.jpg',
+    detail: 'Every student in direct eye-contact with mentors. Concept derivations over passive rote memorization.',
   },
   {
-    title: 'VYAAPAR MBA Summit',
-    subtitle: 'City’s Biggest Business Convention',
-    tag: 'EVENT',
+    id: 3,
+    title: 'VYAAPAR Business Convention',
+    subtitle: 'City’s Premier Career Summit',
+    tag: 'SEMINAR',
     img: '/assets/gmb_event_vyaapar.jpg',
+    detail: 'Connecting high-school & college aspirants with real-world industry leaders, founders, and career mentors.',
   },
   {
-    title: 'Annual Student Meet',
-    subtitle: 'Community & Culture',
+    id: 4,
+    title: 'Annual Student Felicitation',
+    subtitle: 'Community, Culture & Merit',
     tag: 'CELEBRATION',
     img: '/assets/gmb_photo_3.jpg',
+    detail: 'Honoring board toppers, entrance achievers, and academic breakthroughs with the entire Nova family.',
   },
   {
-    title: 'Self-Study & Doubt Desk',
-    subtitle: 'Daily 1-on-1 Faculty Access',
+    id: 5,
+    title: 'Daily 1-on-1 Doubt Desk',
+    subtitle: 'Zero Hesitation Guarantee',
     tag: 'ACADEMICS',
     img: '/assets/student-writing.jpg',
+    detail: 'Personal doubt clearance every evening after classes until all concepts and numericals are cemented.',
+  },
+  {
+    id: 6,
+    title: 'Faculty Honors & Legacy',
+    subtitle: '18+ Years Pedagogy in Nagpur',
+    tag: 'MENTORSHIP',
+    img: '/assets/gmb_event_teachers.jpg',
+    detail: 'Senior educators dedicated exclusively to concept mastery, personalized feedback, and student growth.',
+  },
+  {
+    id: 7,
+    title: 'Academic Discipline & Rigor',
+    subtitle: 'Consistent Daily Practice Sheets',
+    tag: 'METHODOLOGY',
+    img: '/assets/discipline-wall.jpg',
+    detail: 'Daily attendance tracking, prompt feedback loops, and individual parent progress reviews.',
   },
 ];
 
@@ -124,6 +152,60 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Horizontal Card Scroll Carousel State & Logic
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false);
+
+  const scrollCards = (direction: 'left' | 'right') => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const firstCard = container.querySelector('[data-card]') as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 340;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    if (direction === 'right') {
+      if (container.scrollLeft >= maxScroll - 20) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    } else {
+      if (container.scrollLeft <= 20) {
+        container.scrollTo({ left: maxScroll, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      }
+    }
+  };
+
+  const scrollToCardIndex = (idx: number) => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const firstCard = container.querySelector('[data-card]') as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 340;
+    container.scrollTo({ left: idx * cardWidth, behavior: 'smooth' });
+    setActiveCardIndex(idx);
+  };
+
+  const handleCardScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    const firstCard = container.querySelector('[data-card]') as HTMLElement;
+    const cardWidth = firstCard ? firstCard.offsetWidth + 24 : 340;
+    const index = Math.round(container.scrollLeft / cardWidth);
+    setActiveCardIndex(Math.min(Math.max(0, index), highlights.length - 1));
+  };
+
+  // Continuous auto-glide interval (pauses on hover or touch)
+  useEffect(() => {
+    if (isAutoScrollPaused) return;
+    const timer = setInterval(() => {
+      scrollCards('right');
+    }, 3200);
+    return () => clearInterval(timer);
+  }, [isAutoScrollPaused]);
 
   const gradeOptions = [
     { label: 'Class 8th–10th Foundation', sub: 'CBSE & State Board Mastery' },
@@ -353,44 +435,144 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           </div>
         </section>
 
-        {/* 3. The "Jordan Scrolling" Reel: Real Life @ Nova (Full Bleed) */}
-        <section className="py-12 border-y border-white/[0.08] bg-[#130307]/60 backdrop-blur-md overflow-hidden">
-          <div className="max-w-6xl mx-auto px-4 mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#FFD21F] animate-ping" />
-              <span className="text-xs font-bold uppercase tracking-widest text-[#FFD21F]">
-                LIFE @ CALIBER’S NOVA • REAL GMB ARCHIVES
-              </span>
+        {/* 3. Interactive Horizontal Card Scroll: Real Life @ Nova */}
+        <section
+          className="py-12 border-y border-white/[0.08] bg-[#130307]/70 backdrop-blur-md relative overflow-hidden"
+          onMouseEnter={() => setIsAutoScrollPaused(true)}
+          onMouseLeave={() => setIsAutoScrollPaused(false)}
+          onTouchStart={() => setIsAutoScrollPaused(true)}
+          onTouchEnd={() => {
+            setTimeout(() => setIsAutoScrollPaused(false), 3000);
+          }}
+        >
+          {/* Header with Navigation Controls */}
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-[#FFD21F] animate-ping" />
+                <span className="text-xs font-bold uppercase tracking-widest text-[#FFD21F]">
+                  LIFE @ CALIBER’S NOVA • REAL GMB ARCHIVES
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Campus Archives & Classroom Reality
+              </h3>
             </div>
-            <span className="text-xs text-zinc-400 hidden sm:inline">Mahal & Sadar Hubs</span>
+
+            {/* Navigation Controls: Left / Right & Progress */}
+            <div className="flex items-center gap-3 self-end sm:self-auto">
+              <div className="text-xs font-semibold text-zinc-400 mr-1 flex items-center gap-1.5">
+                <span className="text-white font-bold text-sm">
+                  {String(activeCardIndex + 1).padStart(2, '0')}
+                </span>
+                <span>/</span>
+                <span>{String(highlights.length).padStart(2, '0')}</span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => scrollCards('left')}
+                aria-label="Scroll cards left"
+                className="w-10 h-10 rounded-full bg-white/[0.06] hover:bg-[#FFD21F] text-zinc-300 hover:text-black border border-white/10 hover:border-[#FFD21F] flex items-center justify-center transition-all duration-200 active:scale-95 shadow-md"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollCards('right')}
+                aria-label="Scroll cards right"
+                className="w-10 h-10 rounded-full bg-white/[0.06] hover:bg-[#FFD21F] text-zinc-300 hover:text-black border border-white/10 hover:border-[#FFD21F] flex items-center justify-center transition-all duration-200 active:scale-95 shadow-md"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          {/* Marquee Row */}
-          <div className="flex gap-5 w-max animate-marquee">
-            {[...highlights, ...highlights].map((item, idx) => (
+          {/* Horizontal Scrollable Card Reel */}
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleCardScroll}
+            className="flex gap-4 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory px-4 sm:px-8 pb-4 pt-1 cursor-grab active:cursor-grabbing"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            {highlights.map((item, idx) => (
               <div
-                key={idx}
-                className="w-72 sm:w-80 rounded-2xl overflow-hidden border border-white/[0.1] bg-[#1a050e] shrink-0 group relative shadow-xl hover:border-[#FFD21F]/40 transition-all"
+                key={item.id || idx}
+                data-card
+                onClick={() => scrollToCardIndex(idx)}
+                className={`w-[290px] sm:w-[350px] md:w-[380px] shrink-0 snap-start rounded-3xl overflow-hidden border bg-gradient-to-b from-[#1f0510] to-[#120308] group relative shadow-2xl transition-all duration-300 hover:border-[#FFD21F]/70 hover:-translate-y-1 ${
+                  activeCardIndex === idx
+                    ? 'border-[#FFD21F]/60 shadow-[#FFD21F]/15 ring-1 ring-[#FFD21F]/30'
+                    : 'border-white/[0.1]'
+                }`}
               >
-                <div className="h-48 overflow-hidden relative">
+                {/* Image Container */}
+                <div className="h-48 sm:h-56 overflow-hidden relative">
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a050e] via-transparent to-transparent" />
-                  <span className="absolute top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider text-black bg-[#FFD21F] px-2.5 py-0.5 rounded-full shadow">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#120308] via-transparent to-black/30 pointer-events-none" />
+
+                  {/* Category Badge */}
+                  <span className="absolute top-3 left-3 text-[10px] font-black uppercase tracking-wider text-black bg-[#FFD21F] px-2.5 py-1 rounded-full shadow-lg">
                     {item.tag}
                   </span>
+
+                  {/* Top Right Card Counter */}
+                  <span className="absolute top-3 right-3 text-[10px] font-bold text-zinc-300 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
                 </div>
-                <div className="p-4 text-left">
-                  <h4 className="font-bold text-white text-base group-hover:text-[#FFD21F] transition-colors">
-                    {item.title}
-                  </h4>
-                  <p className="text-xs text-zinc-400 mt-1">{item.subtitle}</p>
+
+                {/* Card Content */}
+                <div className="p-5 text-left flex flex-col justify-between h-[160px]">
+                  <div>
+                    <h4 className="font-extrabold text-white text-base sm:text-lg group-hover:text-[#FFD21F] transition-colors line-clamp-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-[#FFD21F]/90 font-semibold mt-0.5">
+                      {item.subtitle}
+                    </p>
+                    <p className="text-xs text-zinc-400 mt-2 line-clamp-2 leading-relaxed font-normal">
+                      {item.detail}
+                    </p>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[11px] text-zinc-500 font-medium">
+                    <span>Caliber’s Nova Archives</span>
+                    <span className="text-[#FFD21F] font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Explore <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Dots Indicator Pills */}
+          <div className="flex items-center justify-center gap-2 mt-4">
+            {highlights.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                aria-label={`Jump to card ${idx + 1}`}
+                onClick={() => scrollToCardIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeCardIndex === idx
+                    ? 'w-7 bg-[#FFD21F]'
+                    : 'w-2 bg-white/20 hover:bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Subtle helper caption */}
+          <div className="text-center mt-2.5">
+            <span className="text-[11px] text-zinc-500 font-medium">
+              Swipe cards horizontally or use arrows • Auto-scrolling enabled
+            </span>
           </div>
         </section>
 
