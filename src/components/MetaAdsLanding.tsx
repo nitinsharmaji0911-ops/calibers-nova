@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {
   MessageCircle,
-  Sparkles,
-  CheckCircle2,
   ArrowRight,
-  ShieldCheck,
-  Star,
   Check,
+  CheckCircle2,
+  MapPin,
+  FileText,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -17,41 +16,16 @@ interface MetaAdsLandingProps {
 export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }) => {
   const [studentName, setStudentName] = useState('');
   const [phone, setPhone] = useState('');
-  const [selectedDegree, setSelectedDegree] = useState('B.Com (Bachelor of Commerce)');
-  const [selectedSem, setSelectedSem] = useState('Semester 1 / 2 (1st Year Backlog)');
-  const [selectedSubject, setSelectedSubject] = useState('Financial Accounting (Sem 1/2)');
-  const [selectedCampus, setSelectedCampus] = useState('Mahal (Natraj Tower)');
+  const [degree, setDegree] = useState('B.Com');
+  const [subject, setSubject] = useState('Financial Accounts');
+  const [campus, setCampus] = useState('Mahal');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
-  const degreeList = [
-    'B.Com (Bachelor of Commerce)',
-    'BBA (Bachelor of Business Administration)',
-    'BCCA (B.Com in Computer Application)',
-    'Class 12th HSC Commerce Re-Exam',
-  ];
-
-  const semList = [
-    'Semester 1 / 2 (1st Year Backlog)',
-    'Semester 3 / 4 (2nd Year Backlog)',
-    'Semester 5 / 6 (Final Year Clearance • Degree Blocked)',
-  ];
-
-  const subjectList = [
-    'Financial Accounting (Sem 1/2)',
-    'Cost & Management Accounting (Sem 3/4)',
-    'Corporate Accounting (Sem 3/4)',
-    'Business Mathematics & Statistics',
-    'Income Tax & Auditing (Sem 5/6)',
-    'Business Economics & Financial Mgmt (BBA)',
-    'Programming & Database Papers (BCCA)',
-    'Multiple Backlogs (Full Degree Clearance Pack)',
-  ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!studentName.trim() || !phone.trim()) {
-      alert('Please enter your name and WhatsApp number.');
+      alert('Please fill in your name and WhatsApp number.');
       return;
     }
 
@@ -62,460 +36,343 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
       try {
         confetti({
-          particleCount: 60,
+          particleCount: 50,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ['#E5B53A', '#ffffff', '#22c55e'],
+          colors: ['#E5B53A', '#ffffff', '#10b981'],
         });
       } catch (err) {
         console.error(err);
       }
 
-      const msg = `Hello Caliber’s Nova AT/KT Cell! 👋\n\nI need guidance to clear my AT/KT backlog:\n\n• Name: ${studentName.trim()}\n• Degree: ${selectedDegree}\n• Semester: ${selectedSem}\n• Backlog Subject: ${selectedSubject}\n• Campus: ${selectedCampus}\n• Mobile: ${phone.trim()}\n\nPlease review my university marksheet and share the fast-track re-exam batch details.`;
+      const msg = `Hi Pankaj Sir! 👋\n\nI want to clear my university backlog:\n• Name: ${studentName.trim()}\n• Degree: ${degree}\n• Subject: ${subject}\n• Campus: ${campus}\n• Phone: ${phone.trim()}\n\nPlease share the fast-track crash batch details & review my marksheet.`;
       const whatsappUrl = `https://wa.me/919595253778?text=${encodeURIComponent(msg)}`;
       setTimeout(() => {
         window.open(whatsappUrl, '_blank');
       }, 1000);
-    }, 600);
+    }, 500);
   };
 
   const scrollToForm = () => {
-    const el = document.getElementById('lead-form');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('fast-track-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#E5B53A] selection:text-black relative overflow-x-hidden">
-      {/* Subtle Minimalist Background Atmosphere */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#380b16]/15 rounded-full blur-[140px]" />
-      </div>
-
-      {/* 1. Header with Degree Badges */}
-      <header className="sticky top-0 z-50 px-4 sm:px-6 py-3.5 backdrop-blur-xl bg-[#0c090a]/90 border-b border-white/[0.06]">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
+    <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#E5B53A] selection:text-black">
+      {/* 1. Ultra-Clean Navbar */}
+      <header className="sticky top-0 z-50 px-4 sm:px-6 py-3 backdrop-blur-xl bg-[#0c090a]/90 border-b border-white/[0.06]">
+        <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-white/[0.06] border border-white/10 p-1 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-white/[0.06] border border-white/10 p-1 flex items-center justify-center">
               <img
                 src="/assets/logo-white.png"
-                alt="Caliber's Nova Logo"
-                className="w-full h-full object-contain filter drop-shadow"
+                alt="Caliber's Nova"
+                className="w-full h-full object-contain"
               />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold tracking-tight text-white text-base">
-                  CALIBER’S <span className="text-[#E5B53A]">NOVA</span>
-                </span>
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-300 px-2 py-0.5 rounded-full bg-white/[0.05] border border-white/[0.08]">
-                  BBA • B.COM • BCCA
-                </span>
-              </div>
-              <p className="text-[11px] text-zinc-400 font-medium hidden sm:block">
-                Nagpur University (RTMNU) AT/KT & Backlog Clearance Cell
-              </p>
+              <span className="font-extrabold tracking-tight text-white text-base">
+                CALIBER’S <span className="text-[#E5B53A]">NOVA</span>
+              </span>
+              <span className="ml-2 text-[10px] font-semibold text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                AT/KT CELL
+              </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <a
-              href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20backlog%20in%20B.Com%2FBBA%2FBCCA.%20Please%20guide%20me."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 hover:text-emerald-200 px-3.5 py-2 rounded-full bg-emerald-950/30 border border-emerald-500/25 hover:border-emerald-500/40 transition-all"
-            >
-              <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="hidden sm:inline">WhatsApp Marksheet</span>
-              <span className="sm:hidden">WhatsApp</span>
-            </a>
-
-            <button
-              onClick={scrollToForm}
-              className="inline-flex items-center gap-1.5 bg-[#E5B53A] hover:bg-[#d8a62c] text-black font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-200 shadow-md active:scale-95"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Clear Backlog</span>
-            </button>
-          </div>
+          <a
+            href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20backlog%20in%20B.Com%2FBBA%2FBCCA.%20Please%20guide%20me."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 px-3 py-1.5 rounded-full bg-emerald-950/40 border border-emerald-500/30 hover:border-emerald-500/50 transition-all"
+          >
+            <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+            <span>WhatsApp Review</span>
+          </a>
         </div>
       </header>
 
-      <main className="relative z-10">
-        {/* 2. Hero Section: Direct Hook & Above-the-Fold Form */}
-        <section className="pt-8 sm:pt-14 pb-12 sm:pb-16 px-4 sm:px-6 max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Targeted Problem & Proven Solution */}
-            <div className="lg:col-span-7 text-left space-y-4">
-              {/* Emergency Alert Tag */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
-                <span className="w-2 h-2 rounded-full bg-[#E5B53A] animate-pulse" />
-                <span className="text-xs font-semibold tracking-wide text-zinc-300">
-                  RTMNU Backlog Exams Approaching • Save Your Degree
-                </span>
-              </div>
-
-              {/* Main Targeted Headline */}
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-[1.12]">
-                Got an AT/KT in <span className="text-[#E5B53A]">BBA, B.Com, or BCCA</span>?
-                <br />
-                Clear It on Your Next Attempt.
-              </h1>
-
-              {/* Reassuring Subtitle */}
-              <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
-                Stuck in <strong className="text-white font-medium">Financial Accounting, Cost Accounting, Corporate Accounts, or Business Stats</strong>? Don’t let a university backlog block your graduation, MBA admissions, or campus placements. Master RTMNU unit-wise scoring formats, step-marking, and past 5-year paper patterns directly under Founder <strong className="text-white font-medium">Pankaj Agrawal Sir</strong>.
-              </p>
-
-              {/* 4 Value Pillars */}
-              <div className="space-y-2.5 pt-1">
-                {[
-                  'Master RTMNU step-marking: Score method marks even if final balance sheet doesn’t tally.',
-                  'Targeted Unit Strategy: Focus on the guaranteed 16-mark high-scoring question types.',
-                  'Solved 5-year past university question papers & repeated exam adjustments.',
-                  'Morning & evening batches at Mahal (Natraj Tower) and Sadar Hubs.',
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-300">
-                    <CheckCircle2 className="w-4 h-4 text-[#E5B53A] shrink-0" />
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Instant WhatsApp Help Button */}
-              <div className="pt-2">
-                <a
-                  href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20B.Com%2FBBA%2FBCCA.%20Can%20you%20review%20my%20marksheet%3F"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-300 px-4 py-2.5 rounded-xl bg-emerald-950/30 hover:bg-emerald-950/50 border border-emerald-500/25 transition-all"
-                >
-                  <MessageCircle className="w-4 h-4 text-emerald-400" />
-                  <span>Send Your Marksheet on WhatsApp for Free Review</span>
-                </a>
-              </div>
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-10 sm:space-y-12">
+        {/* 2. Hero + Form Grid (Minimal & Direct) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Sharp Hook & What We Do */}
+          <div className="lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs text-zinc-300 font-medium">
+              <span className="w-2 h-2 rounded-full bg-[#E5B53A] animate-pulse" />
+              BBA • B.COM • BCCA • 12th HSC
             </div>
 
-            {/* Right Column: Clean Lead Form */}
-            <div id="lead-form" className="lg:col-span-5 scroll-mt-20">
-              <div className="rounded-2xl p-6 sm:p-7 bg-[#141113] border border-white/[0.08] shadow-xl relative text-left">
-                <div className="mb-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-extrabold text-white tracking-tight">
-                      Free AT/KT Diagnosis
-                    </h3>
-                    <span className="text-[10px] font-semibold text-[#E5B53A] px-2 py-0.5 rounded bg-[#E5B53A]/10 border border-[#E5B53A]/20">
-                      Limited Seats
-                    </span>
-                  </div>
-                  <p className="text-xs text-zinc-400 mt-1">
-                    We will review your university marksheet & share your custom passing roadmap.
-                  </p>
-                </div>
+            <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-[1.15]">
+              Clear Your AT/KT on Your Next Attempt.
+            </h1>
 
-                {isSuccess ? (
-                  <div className="py-8 text-center space-y-3">
-                    <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-emerald-400">
-                      <Check className="w-6 h-6" />
-                    </div>
-                    <h4 className="text-base font-bold text-white">Strategy Call Confirmed</h4>
-                    <p className="text-xs text-zinc-400">
-                      Opening WhatsApp to connect directly with Pankaj Sir’s academic desk.
-                    </p>
-                    <a
-                      href={`https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20am%20${encodeURIComponent(studentName)}.%20I%20have%20an%20AT%2FKT%20in%20${encodeURIComponent(selectedDegree)}%20(${encodeURIComponent(selectedSubject)}).%20Please%20guide%20me.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-bold text-black bg-[#E5B53A] px-4 py-2 rounded-lg"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      <span>Open WhatsApp</span>
-                    </a>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-3.5">
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Student Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={studentName}
-                        onChange={(e) => setStudentName(e.target.value)}
-                        placeholder="e.g. Aryan Sharma"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 text-sm focus:outline-none focus:border-[#E5B53A]/70 transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        WhatsApp Number *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        placeholder="10-digit mobile number"
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white placeholder:text-zinc-600 text-sm focus:outline-none focus:border-[#E5B53A]/70 transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Degree Program
-                      </label>
-                      <select
-                        value={selectedDegree}
-                        onChange={(e) => setSelectedDegree(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm focus:outline-none focus:border-[#E5B53A]/70"
-                      >
-                        {degreeList.map((deg, i) => (
-                          <option key={i} value={deg} className="bg-[#141113] text-white">
-                            {deg}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Semester / Backlog Stage
-                      </label>
-                      <select
-                        value={selectedSem}
-                        onChange={(e) => setSelectedSem(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm focus:outline-none focus:border-[#E5B53A]/70"
-                      >
-                        {semList.map((sem, i) => (
-                          <option key={i} value={sem} className="bg-[#141113] text-white">
-                            {sem}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Hurdle Backlog Subject
-                      </label>
-                      <select
-                        value={selectedSubject}
-                        onChange={(e) => setSelectedSubject(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm focus:outline-none focus:border-[#E5B53A]/70"
-                      >
-                        {subjectList.map((subj, i) => (
-                          <option key={i} value={subj} className="bg-[#141113] text-white">
-                            {subj}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Preferred Campus
-                      </label>
-                      <div className="grid grid-cols-2 gap-2">
-                        {['Mahal (Natraj Tower)', 'Sadar Hub'].map((camp) => (
-                          <button
-                            type="button"
-                            key={camp}
-                            onClick={() => setSelectedCampus(camp)}
-                            className={`px-3 py-2 rounded-lg text-xs font-semibold border transition-all text-center ${
-                              selectedCampus === camp
-                                ? 'bg-[#E5B53A]/10 border-[#E5B53A] text-[#E5B53A]'
-                                : 'bg-black/20 border-white/[0.08] text-zinc-400 hover:border-white/20'
-                            }`}
-                          >
-                            {camp.split(' ')[0]}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3 rounded-lg bg-[#E5B53A] hover:bg-[#d8a62c] text-black font-bold text-sm tracking-wide transition-all shadow-md flex items-center justify-center gap-2 active:scale-95 disabled:opacity-50 mt-1"
-                    >
-                      {isSubmitting ? (
-                        <span>Processing...</span>
-                      ) : (
-                        <>
-                          <span>Claim Free Strategy Session</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </>
-                      )}
-                    </button>
-
-                    <p className="text-[10px] text-center text-zinc-500">
-                      Direct faculty consultation • 100% Confidential
-                    </p>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* 3. Subjects We Clear for BBA, B.Com & BCCA */}
-        <section className="py-8 border-y border-white/[0.06] bg-white/[0.01] px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-5">
-              <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
-                Programs & Subjects Handled
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
-              {[
-                { name: 'Financial Accounts', tag: 'B.Com / BCCA' },
-                { name: 'Cost Accounting', tag: 'B.Com / BBA' },
-                { name: 'Corporate Accounts', tag: 'B.Com Sem 3/4' },
-                { name: 'Business Stats & Math', tag: 'BBA / B.Com' },
-                { name: 'Financial Management', tag: 'BBA / B.Com' },
-                { name: 'Income Tax & Law', tag: 'Degree Clearance' },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  onClick={scrollToForm}
-                  className="p-3 rounded-xl bg-[#141113] border border-white/[0.06] hover:border-white/20 text-center cursor-pointer transition-all hover:-translate-y-0.5"
-                >
-                  <div className="text-[10px] font-medium text-zinc-500 uppercase mb-0.5">
-                    {item.tag}
-                  </div>
-                  <div className="text-xs sm:text-sm font-bold text-white">
-                    {item.name}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 4. Real Results: Verified BBA, B.Com & BCCA Students */}
-        <section className="py-12 px-4 sm:px-6 max-w-5xl mx-auto">
-          <div className="text-center mb-7">
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
-              Verified University Turnarounds
-            </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
-              Students Who Cleared Backlogs & Saved Their Degree
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left">
-            {[
-              {
-                name: 'Aman Verma',
-                exam: 'B.Com Sem 2 (RTMNU)',
-                before: 'Failed Financial Accounts 2x',
-                after: 'Cleared with 68 / 80',
-                quote:
-                  'Financial Accounts was stuck for two semesters. Pankaj Sir personally drilled ledger adjustments and university step-marking. Cleared comfortably on my next attempt.',
-              },
-              {
-                name: 'Shruti Deshpande',
-                exam: 'BBA Sem 4 (University Backlog)',
-                before: 'AT/KT in Business Statistics',
-                after: 'Scored 62 / 80 Marks',
-                quote:
-                  'Business Statistics was blocking my promotion to final year. The shortcut formulas and past 5-year paper solving made stats so easy.',
-              },
-              {
-                name: 'Nikhil Raut',
-                exam: 'BCCA Sem 3 (Nagpur)',
-                before: 'Backlog in Cost Accounting',
-                after: 'Cleared in First Crash Batch',
-                quote:
-                  'I was afraid I would lose my campus placement eligibility. Pankaj Sir’s 30-day fast-track batch saved my entire final year.',
-              },
-            ].map((story, i) => (
-              <div
-                key={i}
-                className="p-5 rounded-xl bg-[#141113] border border-white/[0.06] flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-medium text-zinc-400 px-2 py-0.5 rounded bg-white/[0.04]">
-                      {story.before}
-                    </span>
-                    <span className="text-xs font-semibold text-emerald-400">
-                      → {story.after}
-                    </span>
-                  </div>
-                  <h4 className="text-sm font-bold text-white">{story.name}</h4>
-                  <div className="text-[11px] text-zinc-500 mb-2">{story.exam}</div>
-                  <p className="text-xs text-zinc-400 leading-relaxed">
-                    “{story.quote}”
-                  </p>
-                </div>
-                <div className="mt-3 pt-2 border-t border-white/[0.04] flex items-center gap-1 text-[#E5B53A]/80 text-xs">
-                  {[...Array(5)].map((_, s) => (
-                    <Star key={s} className="w-3 h-3 fill-current" />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 5. Minimal Direct Action Banner */}
-        <section className="py-8 px-4 sm:px-6 max-w-4xl mx-auto text-center">
-          <div className="rounded-2xl p-6 sm:p-8 bg-[#141113] border border-white/[0.08]">
-            <h3 className="text-lg sm:text-2xl font-bold text-white">
-              Don’t Let an AT/KT Delay Your Degree or Placements.
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-400 mt-1.5 max-w-lg mx-auto">
-              Walk in to our Mahal (Natraj Tower) or Sadar campus, or WhatsApp your marksheet directly to Founder Pankaj Agrawal Sir.
+            <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
+              Don’t let university backlogs hold back your degree or placements. Master RTMNU step-marking, repeated adjustments, and high-scoring question patterns directly under Founder <span className="text-white font-semibold">Pankaj Agrawal Sir</span>.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-5">
-              <button
-                onClick={scrollToForm}
-                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-[#E5B53A] hover:bg-[#d8a62c] text-black font-bold text-xs sm:text-sm active:scale-95 transition-all"
-              >
-                Claim Free Marksheet Review
-              </button>
+            {/* 3 Quick Bullets Only */}
+            <div className="space-y-2 pt-1 text-xs sm:text-sm text-zinc-300">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#E5B53A] shrink-0" />
+                <span><strong className="text-white">Step-Marking Focus:</strong> Score passing marks even without tallying balance sheets.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#E5B53A] shrink-0" />
+                <span><strong className="text-white">Past 5-Year Papers:</strong> Solved university papers & repeated question patterns.</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#E5B53A] shrink-0" />
+                <span><strong className="text-white">Mahal & Sadar:</strong> Flexible fast-track morning and evening batches.</span>
+              </div>
+            </div>
+
+            {/* Quick WhatsApp Marksheet Link */}
+            <div className="pt-2">
               <a
-                href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20want%20to%20send%20my%20B.Com%2FBBA%2FBCCA%20marksheet%20for%20review."
+                href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20am%20sending%20my%20marksheet%20for%20a%20quick%20AT%2FKT%20review."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-emerald-950/40 hover:bg-emerald-950/60 text-emerald-300 border border-emerald-500/25 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 active:scale-95 transition-all"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-300 hover:text-emerald-200"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>WhatsApp Marksheet</span>
+                <FileText className="w-4 h-4 text-emerald-400" />
+                <span className="underline decoration-emerald-500/40 underline-offset-4">
+                  Send your marksheet on WhatsApp for a free review →
+                </span>
               </a>
             </div>
           </div>
-        </section>
-      </main>
 
-      {/* 6. Clean Minimal Footer */}
-      <footer className="py-6 border-t border-white/[0.06] text-center text-xs text-zinc-500">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-zinc-400">Caliber’s Nova BBA • B.Com • BCCA AT/KT Cell</span>
-            <span>•</span>
-            <span>Mahal & Sadar, Nagpur</span>
-          </div>
-          <div>
-            Helpline: <a href="tel:+919595253778" className="text-zinc-300 font-medium hover:text-white">+91 95952 53778</a>
+          {/* Right Column: Super Simple 3-Field Lead Form */}
+          <div id="fast-track-form" className="lg:col-span-5 scroll-mt-20">
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#141113] border border-white/[0.08] shadow-xl">
+              <h3 className="text-base font-bold text-white mb-1">
+                Fast-Track Backlog Admission
+              </h3>
+              <p className="text-xs text-zinc-400 mb-4">
+                Get your custom passing plan & batch timings.
+              </p>
+
+              {isSuccess ? (
+                <div className="py-6 text-center space-y-3">
+                  <div className="w-10 h-10 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-emerald-400">
+                    <Check className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-sm font-bold text-white">Details Received!</h4>
+                  <p className="text-xs text-zinc-400">
+                    Redirecting to WhatsApp to speak with Pankaj Sir.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-3 text-left">
+                  {/* Name */}
+                  <div>
+                    <input
+                      type="text"
+                      required
+                      value={studentName}
+                      onChange={(e) => setStudentName(e.target.value)}
+                      placeholder="Your Full Name"
+                      className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-500 focus:outline-none focus:border-[#E5B53A]"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <input
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="WhatsApp Mobile Number"
+                      className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-500 focus:outline-none focus:border-[#E5B53A]"
+                    />
+                  </div>
+
+                  {/* Course Pills */}
+                  <div>
+                    <label className="block text-[11px] font-medium text-zinc-400 mb-1.5">
+                      Your Course
+                    </label>
+                    <div className="grid grid-cols-4 gap-1.5">
+                      {['B.Com', 'BBA', 'BCCA', '12th'].map((deg) => (
+                        <button
+                          type="button"
+                          key={deg}
+                          onClick={() => setDegree(deg)}
+                          className={`py-1.5 px-2 rounded-md text-xs font-semibold border transition-all text-center ${
+                            degree === deg
+                              ? 'bg-[#E5B53A] text-black border-[#E5B53A]'
+                              : 'bg-black/20 text-zinc-400 border-white/[0.08] hover:border-white/20'
+                          }`}
+                        >
+                          {deg}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Backlog Subject */}
+                  <div>
+                    <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                      Backlog Subject
+                    </label>
+                    <select
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs focus:outline-none focus:border-[#E5B53A]"
+                    >
+                      <option value="Financial Accounts" className="bg-[#141113]">Financial Accounts</option>
+                      <option value="Cost Accounting" className="bg-[#141113]">Cost & Management Accounts</option>
+                      <option value="Corporate Accounts" className="bg-[#141113]">Corporate Accounting</option>
+                      <option value="Business Statistics / Maths" className="bg-[#141113]">Business Stats / Maths</option>
+                      <option value="Income Tax & Taxation" className="bg-[#141113]">Income Tax & Taxation</option>
+                      <option value="Multiple Backlogs" className="bg-[#141113]">Multiple Subjects</option>
+                    </select>
+                  </div>
+
+                  {/* Campus Choice */}
+                  <div>
+                    <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                      Campus
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {['Mahal', 'Sadar'].map((c) => (
+                        <button
+                          type="button"
+                          key={c}
+                          onClick={() => setCampus(c)}
+                          className={`py-1.5 rounded-md text-xs font-semibold border transition-all ${
+                            campus === c
+                              ? 'bg-white/10 text-white border-white/30'
+                              : 'bg-black/20 text-zinc-400 border-white/[0.08]'
+                          }`}
+                        >
+                          {c} Campus
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-2.5 rounded-lg bg-[#E5B53A] hover:bg-[#d8a62c] text-black font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-50 mt-2"
+                  >
+                    {isSubmitting ? (
+                      <span>Submitting...</span>
+                    ) : (
+                      <>
+                        <span>Get Passing Roadmap</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
+
+        {/* 3. Three Short Proof Quotes (No Long Stories) */}
+        <div>
+          <div className="text-center mb-4">
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
+              Recent Nagpur Student Results
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {[
+              {
+                name: 'Aman V.',
+                degree: 'B.Com Sem 2',
+                result: 'Scored 68/80 in Accounts',
+                note: 'Failed twice before joining. Cleared in 1 attempt.',
+              },
+              {
+                name: 'Shruti D.',
+                degree: 'BBA Sem 4',
+                result: 'Scored 62/80 in Stats',
+                note: 'Stuck in Business Stats. Solved past papers to clear.',
+              },
+              {
+                name: 'Nikhil R.',
+                degree: 'BCCA Sem 3',
+                result: 'Cleared Cost Accounting',
+                note: 'Cleared in fast-track batch and saved his final year.',
+              },
+            ].map((card, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-[#141113] border border-white/[0.06] text-left"
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs font-bold text-white">{card.name}</span>
+                  <span className="text-[10px] text-zinc-400 bg-white/[0.04] px-1.5 py-0.5 rounded">
+                    {card.degree}
+                  </span>
+                </div>
+                <div className="text-xs font-semibold text-emerald-400 mb-1">
+                  {card.result}
+                </div>
+                <p className="text-[11px] text-zinc-400 leading-snug">
+                  {card.note}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 4. Campus Location & Direct Contacts */}
+        <div className="p-5 rounded-2xl bg-[#141113] border border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="space-y-1">
+            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs font-bold text-white">
+              <MapPin className="w-3.5 h-3.5 text-[#E5B53A]" />
+              <span>Two Central Campuses in Nagpur</span>
+            </div>
+            <p className="text-xs text-zinc-400">
+              <strong className="text-zinc-200">Mahal:</strong> Natraj Tower, Near Tilak Statue &nbsp;|&nbsp;{' '}
+              <strong className="text-zinc-200">Sadar:</strong> Residency Road Hub
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20B.Com%2FBBA%2FBCCA."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-lg bg-emerald-950/40 text-emerald-300 border border-emerald-500/30 text-xs font-semibold inline-flex items-center gap-1.5"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Chat on WhatsApp</span>
+            </a>
+            <button
+              onClick={scrollToForm}
+              className="px-4 py-2 rounded-lg bg-[#E5B53A] text-black text-xs font-bold"
+            >
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </main>
+
+      {/* 5. Minimal Footer */}
+      <footer className="py-6 border-t border-white/[0.06] text-center text-xs text-zinc-500">
+        <p>© 2026 Caliber’s Nova • Pankaj Agrawal Sir • Nagpur</p>
+        <p className="mt-1">
+          Helpline: <a href="tel:+919595253778" className="text-zinc-300 hover:text-white">+91 95952 53778</a>
+        </p>
       </footer>
 
-      {/* 7. Minimalist Sticky Bottom Mobile Bar */}
+      {/* 6. Sticky Mobile CTA Dock */}
       <div className="fixed bottom-0 inset-x-0 z-50 p-2.5 bg-[#0c090a]/95 backdrop-blur-xl border-t border-white/[0.08] sm:hidden">
         <div className="flex items-center gap-2">
           <a
-            href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20B.Com%2FBBA%2FBCCA.%20Please%20guide%20me."
+            href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20B.Com%2FBBA%2FBCCA."
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 py-2.5 px-2 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 font-bold text-xs flex items-center justify-center gap-1.5"
+            className="flex-1 py-2.5 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 font-bold text-xs flex items-center justify-center gap-1.5"
           >
             <MessageCircle className="w-4 h-4 text-emerald-400" />
             <span>WhatsApp</span>
@@ -523,10 +380,10 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
           <button
             onClick={scrollToForm}
-            className="flex-1 py-2.5 px-2 rounded-lg bg-[#E5B53A] text-black font-bold text-xs flex items-center justify-center gap-1.5"
+            className="flex-1 py-2.5 rounded-lg bg-[#E5B53A] text-black font-bold text-xs flex items-center justify-center gap-1.5"
           >
-            <Sparkles className="w-4 h-4" />
             <span>Clear Backlog</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
       </div>
