@@ -17,26 +17,35 @@ interface MetaAdsLandingProps {
 export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }) => {
   const [studentName, setStudentName] = useState('');
   const [phone, setPhone] = useState('');
-  const [selectedSubject, setSelectedSubject] = useState('Book Keeping & Accountancy (BK)');
-  const [selectedLevel, setSelectedLevel] = useState('Class 12th HSC Board Re-Exam');
+  const [selectedDegree, setSelectedDegree] = useState('B.Com (Bachelor of Commerce)');
+  const [selectedSem, setSelectedSem] = useState('Semester 1 / 2 (1st Year Backlog)');
+  const [selectedSubject, setSelectedSubject] = useState('Financial Accounting (Sem 1/2)');
   const [selectedCampus, setSelectedCampus] = useState('Mahal (Natraj Tower)');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
-  const subjectList = [
-    'Book Keeping & Accountancy (BK)',
-    'Economics',
-    'Secretarial Practice (SP)',
-    'Organisation of Commerce (OCM)',
-    'Mathematics & Statistics',
-    'B.Com Financial / Cost Accounts',
-    'Multiple Subjects',
+  const degreeList = [
+    'B.Com (Bachelor of Commerce)',
+    'BBA (Bachelor of Business Administration)',
+    'BCCA (B.Com in Computer Application)',
+    'Class 12th HSC Commerce Re-Exam',
   ];
 
-  const levelList = [
-    'Class 12th HSC Board Re-Exam',
-    'Class 11th Commerce Supplementary',
-    'B.Com (RTMNU) Backlog',
+  const semList = [
+    'Semester 1 / 2 (1st Year Backlog)',
+    'Semester 3 / 4 (2nd Year Backlog)',
+    'Semester 5 / 6 (Final Year Clearance • Degree Blocked)',
+  ];
+
+  const subjectList = [
+    'Financial Accounting (Sem 1/2)',
+    'Cost & Management Accounting (Sem 3/4)',
+    'Corporate Accounting (Sem 3/4)',
+    'Business Mathematics & Statistics',
+    'Income Tax & Auditing (Sem 5/6)',
+    'Business Economics & Financial Mgmt (BBA)',
+    'Programming & Database Papers (BCCA)',
+    'Multiple Backlogs (Full Degree Clearance Pack)',
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -62,7 +71,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         console.error(err);
       }
 
-      const msg = `Hello Caliber’s Nova AT/KT Cell! 👋\n\nI need guidance to clear my Commerce AT/KT:\n\n• Name: ${studentName.trim()}\n• Class: ${selectedLevel}\n• Backlog Subject: ${selectedSubject}\n• Campus: ${selectedCampus}\n• Mobile: ${phone.trim()}\n\nPlease review my marksheet and share the re-exam batch schedule.`;
+      const msg = `Hello Caliber’s Nova AT/KT Cell! 👋\n\nI need guidance to clear my AT/KT backlog:\n\n• Name: ${studentName.trim()}\n• Degree: ${selectedDegree}\n• Semester: ${selectedSem}\n• Backlog Subject: ${selectedSubject}\n• Campus: ${selectedCampus}\n• Mobile: ${phone.trim()}\n\nPlease review my university marksheet and share the fast-track re-exam batch details.`;
       const whatsappUrl = `https://wa.me/919595253778?text=${encodeURIComponent(msg)}`;
       setTimeout(() => {
         window.open(whatsappUrl, '_blank');
@@ -84,7 +93,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[#380b16]/15 rounded-full blur-[140px]" />
       </div>
 
-      {/* 1. Minimalist Refined Header */}
+      {/* 1. Header with Degree Badges */}
       <header className="sticky top-0 z-50 px-4 sm:px-6 py-3.5 backdrop-blur-xl bg-[#0c090a]/90 border-b border-white/[0.06]">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -101,18 +110,18 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   CALIBER’S <span className="text-[#E5B53A]">NOVA</span>
                 </span>
                 <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-300 px-2 py-0.5 rounded-full bg-white/[0.05] border border-white/[0.08]">
-                  AT/KT CELL
+                  BBA • B.COM • BCCA
                 </span>
               </div>
               <p className="text-[11px] text-zinc-400 font-medium hidden sm:block">
-                Commerce Re-Exam Fast-Track Batch • Nagpur
+                Nagpur University (RTMNU) AT/KT & Backlog Clearance Cell
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <a
-              href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20Commerce.%20Please%20guide%20me."
+              href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20backlog%20in%20B.Com%2FBBA%2FBCCA.%20Please%20guide%20me."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 hover:text-emerald-200 px-3.5 py-2 rounded-full bg-emerald-950/30 border border-emerald-500/25 hover:border-emerald-500/40 transition-all"
@@ -134,40 +143,38 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
       </header>
 
       <main className="relative z-10">
-        {/* 2. Focused Minimal Hero with Inline Form */}
+        {/* 2. Hero Section: Direct Hook & Above-the-Fold Form */}
         <section className="pt-8 sm:pt-14 pb-12 sm:pb-16 px-4 sm:px-6 max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Column: Problem, Urgency & Method */}
+            {/* Left Column: Targeted Problem & Proven Solution */}
             <div className="lg:col-span-7 text-left space-y-4">
-              {/* Minimalist Subdued Tag */}
+              {/* Emergency Alert Tag */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08]">
                 <span className="w-2 h-2 rounded-full bg-[#E5B53A] animate-pulse" />
                 <span className="text-xs font-semibold tracking-wide text-zinc-300">
-                  Supplementary Re-Exams 2026 • Save Your Academic Year
+                  RTMNU Backlog Exams Approaching • Save Your Degree
                 </span>
               </div>
 
-              {/* Main Clean Headline */}
+              {/* Main Targeted Headline */}
               <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-[1.12]">
-                Got an AT/KT in Commerce?
+                Got an AT/KT in <span className="text-[#E5B53A]">BBA, B.Com, or BCCA</span>?
                 <br />
-                <span className="text-[#E5B53A]">
-                  Clear It on Your Next Attempt.
-                </span>
+                Clear It on Your Next Attempt.
               </h1>
 
-              {/* Clarifying Subtitle */}
+              {/* Reassuring Subtitle */}
               <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
-                Stuck in <strong className="text-white font-medium">Accounts (BK), Economics, or SP</strong> by a few marks? You don’t need to re-read entire textbooks. Master the step-marking techniques, adjustment shortcuts, and predicted questions directly under founder <strong className="text-white font-medium">Pankaj Agrawal Sir</strong>.
+                Stuck in <strong className="text-white font-medium">Financial Accounting, Cost Accounting, Corporate Accounts, or Business Stats</strong>? Don’t let a university backlog block your graduation, MBA admissions, or campus placements. Master RTMNU unit-wise scoring formats, step-marking, and past 5-year paper patterns directly under Founder <strong className="text-white font-medium">Pankaj Agrawal Sir</strong>.
               </p>
 
-              {/* 4 Clean Value Points */}
+              {/* 4 Value Pillars */}
               <div className="space-y-2.5 pt-1">
                 {[
-                  'Score passing marks in Accounts even if balance sheet doesn’t tally (Step-Marking).',
-                  'Solved 5-year past re-exam papers & predicted high-weightage questions.',
-                  'Direct guidance by Pankaj Agrawal Sir (18+ Yrs Nagpur Commerce Mentor).',
-                  'Batches running at Mahal (Natraj Tower) & Sadar Hubs.',
+                  'Master RTMNU step-marking: Score method marks even if final balance sheet doesn’t tally.',
+                  'Targeted Unit Strategy: Focus on the guaranteed 16-mark high-scoring question types.',
+                  'Solved 5-year past university question papers & repeated exam adjustments.',
+                  'Morning & evening batches at Mahal (Natraj Tower) and Sadar Hubs.',
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-300">
                     <CheckCircle2 className="w-4 h-4 text-[#E5B53A] shrink-0" />
@@ -176,10 +183,10 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 ))}
               </div>
 
-              {/* Minimalist Subdued WhatsApp Action */}
+              {/* Instant WhatsApp Help Button */}
               <div className="pt-2">
                 <a
-                  href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20Commerce.%20Can%20you%20review%20my%20marksheet%3F"
+                  href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20B.Com%2FBBA%2FBCCA.%20Can%20you%20review%20my%20marksheet%3F"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-emerald-300 px-4 py-2.5 rounded-xl bg-emerald-950/30 hover:bg-emerald-950/50 border border-emerald-500/25 transition-all"
@@ -190,7 +197,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               </div>
             </div>
 
-            {/* Right Column: Clean Minimalist Lead Form */}
+            {/* Right Column: Clean Lead Form */}
             <div id="lead-form" className="lg:col-span-5 scroll-mt-20">
               <div className="rounded-2xl p-6 sm:p-7 bg-[#141113] border border-white/[0.08] shadow-xl relative text-left">
                 <div className="mb-4">
@@ -199,11 +206,11 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                       Free AT/KT Diagnosis
                     </h3>
                     <span className="text-[10px] font-semibold text-[#E5B53A] px-2 py-0.5 rounded bg-[#E5B53A]/10 border border-[#E5B53A]/20">
-                      Re-Exam Seats
+                      Limited Seats
                     </span>
                   </div>
                   <p className="text-xs text-zinc-400 mt-1">
-                    We will review your marksheet & share your custom passing roadmap.
+                    We will review your university marksheet & share your custom passing roadmap.
                   </p>
                 </div>
 
@@ -214,10 +221,10 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                     </div>
                     <h4 className="text-base font-bold text-white">Strategy Call Confirmed</h4>
                     <p className="text-xs text-zinc-400">
-                      Opening WhatsApp to connect directly with Pankaj Sir’s desk.
+                      Opening WhatsApp to connect directly with Pankaj Sir’s academic desk.
                     </p>
                     <a
-                      href={`https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20am%20${encodeURIComponent(studentName)}.%20I%20have%20an%20AT%2FKT%20in%20${encodeURIComponent(selectedSubject)}.%20Please%20guide%20me.`}
+                      href={`https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20am%20${encodeURIComponent(studentName)}.%20I%20have%20an%20AT%2FKT%20in%20${encodeURIComponent(selectedDegree)}%20(${encodeURIComponent(selectedSubject)}).%20Please%20guide%20me.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-xs font-bold text-black bg-[#E5B53A] px-4 py-2 rounded-lg"
@@ -258,7 +265,41 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
                     <div>
                       <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Backlog Subject
+                        Degree Program
+                      </label>
+                      <select
+                        value={selectedDegree}
+                        onChange={(e) => setSelectedDegree(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm focus:outline-none focus:border-[#E5B53A]/70"
+                      >
+                        {degreeList.map((deg, i) => (
+                          <option key={i} value={deg} className="bg-[#141113] text-white">
+                            {deg}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
+                        Semester / Backlog Stage
+                      </label>
+                      <select
+                        value={selectedSem}
+                        onChange={(e) => setSelectedSem(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm focus:outline-none focus:border-[#E5B53A]/70"
+                      >
+                        {semList.map((sem, i) => (
+                          <option key={i} value={sem} className="bg-[#141113] text-white">
+                            {sem}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
+                        Hurdle Backlog Subject
                       </label>
                       <select
                         value={selectedSubject}
@@ -268,23 +309,6 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                         {subjectList.map((subj, i) => (
                           <option key={i} value={subj} className="bg-[#141113] text-white">
                             {subj}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-semibold text-zinc-300 mb-1">
-                        Current Level / Exam
-                      </label>
-                      <select
-                        value={selectedLevel}
-                        onChange={(e) => setSelectedLevel(e.target.value)}
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm focus:outline-none focus:border-[#E5B53A]/70"
-                      >
-                        {levelList.map((lvl, i) => (
-                          <option key={i} value={lvl} className="bg-[#141113] text-white">
-                            {lvl}
                           </option>
                         ))}
                       </select>
@@ -337,23 +361,23 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           </div>
         </section>
 
-        {/* 3. Subjects We Clear (Minimalist Badges) */}
+        {/* 3. Subjects We Clear for BBA, B.Com & BCCA */}
         <section className="py-8 border-y border-white/[0.06] bg-white/[0.01] px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-5">
               <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
-                Subjects Handled in Re-Exam Batches
+                Programs & Subjects Handled
               </span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5">
               {[
-                { name: 'Accounts (BK)', tag: 'Class 12th' },
-                { name: 'Economics', tag: 'Class 12th' },
-                { name: 'Secretarial Practice', tag: 'Class 12th' },
-                { name: 'OCM', tag: 'Class 12th' },
-                { name: 'Maths & Stats', tag: 'Commerce' },
-                { name: 'B.Com Accounts', tag: 'RTMNU' },
+                { name: 'Financial Accounts', tag: 'B.Com / BCCA' },
+                { name: 'Cost Accounting', tag: 'B.Com / BBA' },
+                { name: 'Corporate Accounts', tag: 'B.Com Sem 3/4' },
+                { name: 'Business Stats & Math', tag: 'BBA / B.Com' },
+                { name: 'Financial Management', tag: 'BBA / B.Com' },
+                { name: 'Income Tax & Law', tag: 'Degree Clearance' },
               ].map((item, idx) => (
                 <div
                   key={idx}
@@ -372,42 +396,42 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           </div>
         </section>
 
-        {/* 4. Real Results: Verified Nagpur Students */}
+        {/* 4. Real Results: Verified BBA, B.Com & BCCA Students */}
         <section className="py-12 px-4 sm:px-6 max-w-5xl mx-auto">
           <div className="text-center mb-7">
             <span className="text-[11px] font-semibold uppercase tracking-widest text-zinc-400">
-              Verified Student Turnarounds
+              Verified University Turnarounds
             </span>
             <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
-              From Backlog to Passing with High Marks
+              Students Who Cleared Backlogs & Saved Their Degree
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 text-left">
             {[
               {
-                name: 'Rohan Meshram',
-                exam: '12th HSC Commerce Re-Exam',
-                before: 'Failed Accounts by 7 Marks',
-                after: '74 / 100 in Re-Exam',
+                name: 'Aman Verma',
+                exam: 'B.Com Sem 2 (RTMNU)',
+                before: 'Failed Financial Accounts 2x',
+                after: 'Cleared with 68 / 80',
                 quote:
-                  'Pankaj Sir checked my answer sheet, pointed out that I lost 22 marks on step-marking, and drilled partnership adjustments till it was second nature.',
+                  'Financial Accounts was stuck for two semesters. Pankaj Sir personally drilled ledger adjustments and university step-marking. Cleared comfortably on my next attempt.',
               },
               {
-                name: 'Pooja Agrawal',
-                exam: 'Class 12th Board Re-Exam',
-                before: 'AT/KT in Accounts & SP',
-                after: 'Cleared Both with 68%',
+                name: 'Shruti Deshpande',
+                exam: 'BBA Sem 4 (University Backlog)',
+                before: 'AT/KT in Business Statistics',
+                after: 'Scored 62 / 80 Marks',
                 quote:
-                  'College teachers never had time for doubts. Here, we solved past 6 years board papers. I saved an entire academic year!',
+                  'Business Statistics was blocking my promotion to final year. The shortcut formulas and past 5-year paper solving made stats so easy.',
               },
               {
-                name: 'Sameer Sheikh',
-                exam: 'B.Com 1st Year (RTMNU)',
-                before: 'Backlog in Financial Accounts',
-                after: 'Scored 65% in Re-Test',
+                name: 'Nikhil Raut',
+                exam: 'BCCA Sem 3 (Nagpur)',
+                before: 'Backlog in Cost Accounting',
+                after: 'Cleared in First Crash Batch',
                 quote:
-                  'The shortcut derivations and nightly doubt sessions made difficult ledger adjustments so simple. Pankaj Sir’s method works.',
+                  'I was afraid I would lose my campus placement eligibility. Pankaj Sir’s 30-day fast-track batch saved my entire final year.',
               },
             ].map((story, i) => (
               <div
@@ -443,7 +467,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         <section className="py-8 px-4 sm:px-6 max-w-4xl mx-auto text-center">
           <div className="rounded-2xl p-6 sm:p-8 bg-[#141113] border border-white/[0.08]">
             <h3 className="text-lg sm:text-2xl font-bold text-white">
-              Don’t Let an AT/KT Delay Your Academic Year.
+              Don’t Let an AT/KT Delay Your Degree or Placements.
             </h3>
             <p className="text-xs sm:text-sm text-zinc-400 mt-1.5 max-w-lg mx-auto">
               Walk in to our Mahal (Natraj Tower) or Sadar campus, or WhatsApp your marksheet directly to Founder Pankaj Agrawal Sir.
@@ -457,7 +481,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 Claim Free Marksheet Review
               </button>
               <a
-                href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20want%20to%20send%20my%20Commerce%20marksheet%20for%20review."
+                href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20want%20to%20send%20my%20B.Com%2FBBA%2FBCCA%20marksheet%20for%20review."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-emerald-950/40 hover:bg-emerald-950/60 text-emerald-300 border border-emerald-500/25 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 active:scale-95 transition-all"
@@ -474,9 +498,9 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
       <footer className="py-6 border-t border-white/[0.06] text-center text-xs text-zinc-500">
         <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-zinc-400">Caliber’s Nova Commerce AT/KT Cell</span>
+            <span className="font-semibold text-zinc-400">Caliber’s Nova BBA • B.Com • BCCA AT/KT Cell</span>
             <span>•</span>
-            <span>Mahal (Natraj Tower) & Sadar, Nagpur</span>
+            <span>Mahal & Sadar, Nagpur</span>
           </div>
           <div>
             Helpline: <a href="tel:+919595253778" className="text-zinc-300 font-medium hover:text-white">+91 95952 53778</a>
@@ -488,7 +512,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
       <div className="fixed bottom-0 inset-x-0 z-50 p-2.5 bg-[#0c090a]/95 backdrop-blur-xl border-t border-white/[0.08] sm:hidden">
         <div className="flex items-center gap-2">
           <a
-            href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20Commerce.%20Please%20guide%20me."
+            href="https://wa.me/919595253778?text=Hello%20Pankaj%20Sir%2C%20I%20have%20an%20AT%2FKT%20in%20B.Com%2FBBA%2FBCCA.%20Please%20guide%20me."
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 py-2.5 px-2 rounded-lg bg-emerald-950/50 border border-emerald-500/30 text-emerald-300 font-bold text-xs flex items-center justify-center gap-1.5"
