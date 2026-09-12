@@ -125,17 +125,17 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
   return (
     <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#FFD21F] selection:text-black flex flex-col justify-between">
       {/* 1. Header (Clean Logo only, No 'Academic Institute', No 'Mahal Nagpur') */}
-      <header className="px-4 sm:px-6 py-3.5 border-b border-white/[0.06] sticky top-0 z-50 bg-[#0c090a]/90 backdrop-blur-xl">
+      <header className="px-4 sm:px-6 py-4 border-b border-white/[0.06] sticky top-0 z-50 bg-[#0c090a]/90 backdrop-blur-xl">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden border border-white/20 shrink-0">
+          <div className="flex items-center gap-3 sm:gap-3.5">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white flex items-center justify-center p-1 overflow-hidden border border-white/20 shadow-md shrink-0">
               <img
                 src="/assets/logo.png"
                 alt="Caliber's Nova Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-white font-extrabold text-sm sm:text-base tracking-tight leading-tight whitespace-nowrap">
+            <span className="text-white font-black text-lg sm:text-2xl tracking-tight leading-none whitespace-nowrap">
               CALIBER’S <span className="text-[#FFD21F]">NOVA</span>
             </span>
           </div>
