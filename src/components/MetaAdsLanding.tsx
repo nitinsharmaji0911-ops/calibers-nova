@@ -397,7 +397,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         </section>
 
         {/* 3. Continuous Auto-Scrolling Reel of Cards: Real Life @ Nova */}
-        <section className="py-12 border-y border-white/[0.08] bg-[#130307]/70 backdrop-blur-md relative overflow-hidden group">
+        <section id="campus-archives" className="py-12 border-y border-white/[0.08] bg-[#130307]/70 backdrop-blur-md relative overflow-hidden group">
           {/* Header with Auto-Scroll Controls */}
           <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
