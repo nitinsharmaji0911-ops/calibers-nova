@@ -6,12 +6,93 @@ interface MetaAdsLandingProps {
   onNavigateHome?: () => void;
 }
 
+interface ReviewItem {
+  id: string;
+  name: string;
+  degree: string;
+  result: string;
+  text: string;
+}
+
+const reviewsCol1: ReviewItem[] = [
+  {
+    id: 'r1',
+    name: 'Aman Verma',
+    degree: 'B.Com Sem 2 • RTMNU',
+    result: 'Scored 68/80 in Accounts',
+    text: 'Financial Accounts was stuck for two attempts. Pankaj Sir drilled ledger adjustments and university step-marking. Cleared comfortably on my next attempt.',
+  },
+  {
+    id: 'r2',
+    name: 'Shruti Deshpande',
+    degree: 'BBA Sem 4 • Nagpur',
+    result: 'Scored 62/80 in Stats',
+    text: 'Business Statistics was blocking my degree promotion. The shortcut formulas and past 5-year question banks made stats so easy to pass.',
+  },
+  {
+    id: 'r3',
+    name: 'Akash Joshi',
+    degree: 'B.Com Final Year',
+    result: 'Cleared Cost & Tax Backlogs',
+    text: 'Had 2 backlogs in Cost Accounts and Income Tax. Cleared both in the supplementary exam. Best commerce guidance in Mahal.',
+  },
+];
+
+const reviewsCol2: ReviewItem[] = [
+  {
+    id: 'r4',
+    name: 'Nikhil Raut',
+    degree: 'BCCA Sem 3 • Nagpur',
+    result: 'Cleared Cost Accounting',
+    text: 'Was afraid I would lose campus placement eligibility. Pankaj Sir’s targeted unit-wise questions saved my entire final year.',
+  },
+  {
+    id: 'r5',
+    name: 'Pooja Agarwal',
+    degree: 'Class 12th HSC Commerce',
+    result: 'Cleared Accounts with 72/100',
+    text: 'Failed Accountancy re-exam previously. Pankaj Sir personally guided my journal entries and balance sheet format. Cleared with ease.',
+  },
+  {
+    id: 'r6',
+    name: 'Kunal Mehta',
+    degree: 'BBA Sem 2 • RTMNU',
+    result: 'Passed on First Attempt',
+    text: 'Strictly focused on what comes in university exams and how evaluators award step marks. Highly recommended to any student with backlogs.',
+  },
+];
+
+const ReviewCard: React.FC<{ review: ReviewItem }> = ({ review }) => (
+  <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-b from-[#1c080d] via-[#140407] to-[#0c090a] border border-white/[0.08] hover:border-[#FFD21F]/30 text-left transition-all duration-300 shadow-lg group flex flex-col justify-between">
+    <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed font-normal mb-2.5">
+      “{review.text}”
+    </p>
+
+    <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between gap-1">
+      <div className="min-w-0 flex-1">
+        <div className="text-xs font-bold text-white group-hover:text-[#FFD21F] transition-colors truncate">
+          {review.name}
+        </div>
+        <div className="text-[9.5px] text-zinc-400 font-medium truncate">
+          {review.degree}
+        </div>
+        <div className="text-[10px] text-emerald-400 font-semibold truncate mt-0.5">
+          {review.result}
+        </div>
+      </div>
+      <div className="shrink-0 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[9px] font-mono text-zinc-400">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+        <span>Verified</span>
+      </div>
+    </div>
+  </div>
+);
+
 export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }) => {
   const [studentName, setStudentName] = useState('');
   const [phone, setPhone] = useState('');
   const [degree, setDegree] = useState('B.Com');
   const [subject, setSubject] = useState('Financial Accounts');
-  const [campus, setCampus] = useState('Mahal');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -32,7 +113,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           particleCount: 50,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ['#E5B53A', '#ffffff'],
+          colors: ['#FFD21F', '#ffffff'],
         });
       } catch (err) {
         console.error(err);
@@ -41,60 +122,68 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
   };
 
   return (
-    <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#E5B53A] selection:text-black flex flex-col justify-between">
-      {/* 1. Header (No WhatsApp) */}
-      <header className="px-4 sm:px-6 py-4 border-b border-white/[0.06]">
+    <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#FFD21F] selection:text-black flex flex-col justify-between">
+      {/* 1. Official Website Logo & Header (No WhatsApp, Sadar removed) */}
+      <header className="px-4 sm:px-6 py-3.5 border-b border-white/[0.06] sticky top-0 z-50 bg-[#0c090a]/90 backdrop-blur-xl">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <img
-              src="/assets/logo-white.png"
-              alt="Caliber's Nova"
-              className="w-8 h-8 object-contain"
-            />
-            <span className="font-extrabold tracking-tight text-white text-base">
-              CALIBER’S <span className="text-[#E5B53A]">NOVA</span>
-            </span>
+          {/* Official circular emblem logo matching Navbar.tsx */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden border border-white/20 shrink-0">
+              <img
+                src="/assets/logo.png"
+                alt="Caliber's Nova Logo"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-white font-extrabold text-xs sm:text-sm tracking-tight leading-tight whitespace-nowrap">
+                CALIBER’S <span className="text-[#FFD21F]">NOVA</span>
+              </span>
+              <span className="text-[9px] uppercase tracking-widest text-zinc-400 font-semibold whitespace-nowrap">
+                Academic Institute • Est. 2007
+              </span>
+            </div>
           </div>
 
           <a
             href="tel:+919595253778"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-300 hover:text-white px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 transition-all"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-300 hover:text-white px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 transition-all hover:border-[#FFD21F]/40"
           >
-            <Phone className="w-3.5 h-3.5 text-[#E5B53A]" />
+            <Phone className="w-3.5 h-3.5 text-[#FFD21F]" />
             <span>+91 95952 53778</span>
           </a>
         </div>
       </header>
 
-      {/* 2. Main Content: Ultra Minimal & Centered */}
-      <main className="flex-1 max-w-md mx-auto w-full px-4 sm:px-6 py-8 sm:py-12 flex flex-col justify-center">
-        {/* Direct Title */}
-        <div className="text-center space-y-2 mb-6">
-          <div className="inline-block text-[11px] font-semibold text-[#E5B53A] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#E5B53A]/10 border border-[#E5B53A]/20">
-            RTMNU AT/KT Fast-Track
+      {/* 2. Main Body */}
+      <main className="flex-1 max-w-lg mx-auto w-full px-4 sm:px-6 py-6 sm:py-10 space-y-8">
+        {/* Punchy Title (No generic 'fast track' jargon) */}
+        <div className="text-center space-y-2">
+          <div className="inline-block text-[10px] sm:text-[11px] font-semibold text-[#FFD21F] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/20">
+            RTMNU • Commerce Backlog Cell
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
             Clear Your AT/KT on Next Attempt
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400">
-            BBA • B.Com • BCCA • Mentored by Pankaj Agrawal Sir
+            BBA • B.Com • BCCA • Mentored by Founder <span className="text-white font-medium">Pankaj Agrawal Sir</span>
           </p>
         </div>
 
-        {/* Minimal Form Card */}
+        {/* Lead Capture Form Card */}
         <div className="p-5 sm:p-6 rounded-2xl bg-[#141113] border border-white/[0.08] shadow-2xl">
           {isSuccess ? (
             <div className="py-8 text-center space-y-3">
-              <div className="w-12 h-12 bg-[#E5B53A]/10 border border-[#E5B53A]/30 rounded-full flex items-center justify-center mx-auto text-[#E5B53A]">
+              <div className="w-12 h-12 bg-[#FFD21F]/10 border border-[#FFD21F]/30 rounded-full flex items-center justify-center mx-auto text-[#FFD21F]">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-white">Callback Requested!</h3>
+              <h3 className="text-base font-bold text-white">Request Received!</h3>
               <p className="text-xs text-zinc-400 max-w-xs mx-auto">
-                Our academic desk will call you at <strong className="text-white">{phone}</strong> shortly with batch timings and exam roadmap.
+                Our academic desk will call you at <strong className="text-white">{phone}</strong> shortly with your passing plan & batch timings.
               </p>
               <a
                 href="tel:+919595253778"
-                className="inline-flex items-center gap-2 text-xs font-bold text-black bg-[#E5B53A] px-4 py-2 rounded-lg mt-2"
+                className="inline-flex items-center gap-2 text-xs font-bold text-black bg-[#FFD21F] hover:bg-[#e6bd1b] px-4 py-2 rounded-lg mt-2 transition-all"
               >
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call Us Directly</span>
@@ -112,7 +201,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
                   placeholder="Enter your name"
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#E5B53A]"
+                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
                 />
               </div>
 
@@ -126,7 +215,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="10-digit mobile number"
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#E5B53A]"
+                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
                 />
               </div>
 
@@ -142,7 +231,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                       onClick={() => setDegree(deg)}
                       className={`py-1.5 rounded-md text-xs font-semibold border transition-all ${
                         degree === deg
-                          ? 'bg-[#E5B53A] text-black border-[#E5B53A]'
+                          ? 'bg-[#FFD21F] text-black border-[#FFD21F]'
                           : 'bg-black/20 text-zinc-400 border-white/[0.08] hover:border-white/20'
                       }`}
                     >
@@ -159,7 +248,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 <select
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs focus:outline-none focus:border-[#E5B53A]"
+                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs focus:outline-none focus:border-[#FFD21F]"
                 >
                   <option value="Financial Accounts" className="bg-[#141113]">Financial Accounts</option>
                   <option value="Cost Accounting" className="bg-[#141113]">Cost Accounting</option>
@@ -170,56 +259,71 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 </select>
               </div>
 
-              <div>
-                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
-                  Preferred Campus
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  {['Mahal', 'Sadar'].map((c) => (
-                    <button
-                      type="button"
-                      key={c}
-                      onClick={() => setCampus(c)}
-                      className={`py-1.5 rounded-md text-xs font-semibold border transition-all ${
-                        campus === c
-                          ? 'bg-white/10 text-white border-white/30'
-                          : 'bg-black/20 text-zinc-400 border-white/[0.08]'
-                      }`}
-                    >
-                      {c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
+              {/* Form submit button (No 'fast track' wording) */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 rounded-lg bg-[#E5B53A] hover:bg-[#d8a62c] text-black font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-50 mt-2"
+                className="w-full py-2.5 rounded-lg bg-[#FFD21F] hover:bg-[#e6bd1b] text-black font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-50 mt-2 shadow-md shadow-black/40"
               >
                 {isSubmitting ? (
                   <span>Submitting...</span>
                 ) : (
                   <>
-                    <span>Get Fast-Track Details</span>
+                    <span>Clear My Backlog</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
               </button>
+
+              <p className="text-[10px] text-center text-zinc-500 pt-1">
+                📍 Mahal Campus: Natraj Tower, Near Tilak Statue, Nagpur
+              </p>
             </form>
           )}
         </div>
 
-        {/* Minimal Footer Info */}
-        <div className="mt-6 text-center text-[11px] text-zinc-500 space-y-1">
-          <p>📍 Mahal: Natraj Tower • Sadar: Residency Road</p>
-          <p>Direct Faculty Assistance • 100% Confidential</p>
+        {/* 3. Verified Student Reviews (Infinite 2-Column Vertical Marquee Effect from Real Website) */}
+        <div className="pt-2">
+          <div className="text-center mb-3">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#FFD21F]">
+              VERIFIED AT/KT TURNAROUNDS
+            </span>
+            <h3 className="text-sm sm:text-base font-bold text-white mt-0.5">
+              Students Who Cleared Backlogs
+            </h3>
+          </div>
+
+          {/* 2-Column Marquee matching TestimonialsSection.tsx */}
+          <div className="relative h-[340px] sm:h-[380px] overflow-hidden mask-marquee-vertical rounded-xl">
+            {/* Top & Bottom Fade Overlays */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#0c090a] via-[#0c090a]/80 to-transparent z-20" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#0c090a] via-[#0c090a]/80 to-transparent z-20" />
+
+            <div className="grid grid-cols-2 gap-2.5 h-full items-start">
+              {/* Column 1 - Moving Up */}
+              <div className="animate-marquee-up-slow pause-hover flex flex-col gap-2.5">
+                {[...reviewsCol1, ...reviewsCol1].map((rev, idx) => (
+                  <ReviewCard key={`col1-${rev.id}-${idx}`} review={rev} />
+                ))}
+              </div>
+
+              {/* Column 2 - Moving Down */}
+              <div className="animate-marquee-down-slow pause-hover flex flex-col gap-2.5">
+                {[...reviewsCol2, ...reviewsCol2].map((rev, idx) => (
+                  <ReviewCard key={`col2-${rev.id}-${idx}`} review={rev} />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
-      {/* 3. Footer */}
-      <footer className="py-4 border-t border-white/[0.06] text-center text-xs text-zinc-600">
-        <p>© 2026 Caliber’s Nova • Nagpur</p>
+      {/* 4. Footer (Mahal Only, No Sadar) */}
+      <footer className="py-4 border-t border-white/[0.06] text-center text-xs text-zinc-500">
+        <p>© 2026 Caliber’s Nova • Mahal Campus, Nagpur</p>
+        <p className="mt-0.5 text-zinc-400">
+          Helpline: <a href="tel:+919595253778" className="text-zinc-200 hover:text-white">+91 95952 53778</a>
+        </p>
       </footer>
     </div>
   );
