@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, MapPin, Mail } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface MetaAdsLandingProps {
@@ -25,7 +25,7 @@ const reviewsCol1: ReviewItem[] = [
   {
     id: 'r2',
     name: 'Shruti Deshpande',
-    degree: 'BBA Sem 4 • Nagpur',
+    degree: 'BBA Sem 4',
     result: 'Scored 62/80 in Stats',
     text: 'Business Statistics was blocking my degree promotion. The shortcut formulas and past 5-year question banks made stats so easy to pass.',
   },
@@ -34,7 +34,7 @@ const reviewsCol1: ReviewItem[] = [
     name: 'Akash Joshi',
     degree: 'B.Com Final Year',
     result: 'Cleared Cost & Tax Backlogs',
-    text: 'Had 2 backlogs in Cost Accounts and Income Tax. Cleared both in the supplementary exam. Best commerce guidance in Mahal.',
+    text: 'Had 2 backlogs in Cost Accounts and Income Tax. Cleared both in the supplementary exam. Best commerce guidance.',
   },
 ];
 
@@ -42,7 +42,7 @@ const reviewsCol2: ReviewItem[] = [
   {
     id: 'r4',
     name: 'Nikhil Raut',
-    degree: 'BCCA Sem 3 • Nagpur',
+    degree: 'BCCA Sem 3',
     result: 'Cleared Cost Accounting',
     text: 'Was afraid I would lose campus placement eligibility. Pankaj Sir’s targeted unit-wise questions saved my entire final year.',
   },
@@ -124,10 +124,9 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
   return (
     <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#FFD21F] selection:text-black flex flex-col justify-between">
-      {/* 1. Official Website Logo & Header (Institute number removed, official emblem) */}
+      {/* 1. Header (Clean Logo only, No 'Academic Institute', No 'Mahal Nagpur') */}
       <header className="px-4 sm:px-6 py-3.5 border-b border-white/[0.06] sticky top-0 z-50 bg-[#0c090a]/90 backdrop-blur-xl">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
-          {/* Official circular emblem logo matching Navbar.tsx */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden border border-white/20 shrink-0">
               <img
@@ -136,19 +135,9 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex flex-col text-left">
-              <span className="text-white font-extrabold text-xs sm:text-sm tracking-tight leading-tight whitespace-nowrap">
-                CALIBER’S <span className="text-[#FFD21F]">NOVA</span>
-              </span>
-              <span className="text-[9px] uppercase tracking-widest text-zinc-400 font-semibold whitespace-nowrap">
-                Academic Institute • Est. 2007
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 text-xs font-semibold text-zinc-300 bg-white/[0.04] px-3 py-1.5 rounded-full border border-white/[0.08]">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Mahal, Nagpur</span>
+            <span className="text-white font-extrabold text-sm sm:text-base tracking-tight leading-tight whitespace-nowrap">
+              CALIBER’S <span className="text-[#FFD21F]">NOVA</span>
+            </span>
           </div>
         </div>
       </header>
@@ -168,7 +157,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           </p>
         </div>
 
-        {/* Lead Capture Form Card (Student enters both Mobile Number and Email ID) */}
+        {/* Lead Capture Form Card */}
         <div className="p-5 sm:p-6 rounded-2xl bg-[#141113] border border-white/[0.08] shadow-2xl">
           {isSuccess ? (
             <div className="py-8 text-center space-y-3">
@@ -179,12 +168,6 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               <p className="text-xs text-zinc-300 max-w-xs mx-auto leading-relaxed">
                 Thank you, <strong className="text-white">{studentName}</strong>! Our academic desk will call you at <strong className="text-white">{phone}</strong> and send your passing roadmap to <strong className="text-white">{email}</strong>.
               </p>
-              <div className="pt-2">
-                <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>Mahal Campus, Natraj Tower</span>
-                </span>
-              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 text-left">
@@ -285,11 +268,6 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   </>
                 )}
               </button>
-
-              <p className="text-[10px] text-center text-zinc-500 pt-1 flex items-center justify-center gap-1">
-                <MapPin className="w-3 h-3 text-[#FFD21F]" />
-                <span>Mahal Campus: Natraj Tower, Near Tilak Statue, Nagpur</span>
-              </p>
             </form>
           )}
         </div>
@@ -330,9 +308,9 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         </div>
       </main>
 
-      {/* 4. Footer (Mahal Only, No Institute Phone Number) */}
+      {/* 4. Footer (No Mahal Nagpur) */}
       <footer className="py-4 border-t border-white/[0.06] text-center text-xs text-zinc-500">
-        <p>© 2026 Caliber’s Nova • Mahal Campus, Nagpur</p>
+        <p>© 2026 Caliber’s Nova</p>
         <p className="mt-0.5 text-zinc-400">
           Email: <a href="mailto:info@calibernova.in" className="text-zinc-200 hover:text-white">info@calibernova.in</a>
         </p>
