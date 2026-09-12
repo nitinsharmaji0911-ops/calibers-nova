@@ -70,7 +70,7 @@ export const FacultySection: React.FC<FacultySectionProps> = ({ onOpenCounsellin
           <div className="mt-4 flex items-center gap-2">
             <div className="w-6 h-0.5 bg-[#FFD21F]" />
             <span className="text-xs font-semibold text-zinc-300">
-              Pankaj Agrawal & Rahul Rai • Co-Founders & Academic Mentors (Est. 2007)
+              Pankaj Agrawal • Founder & Academic Mentor (Est. 2007)
             </span>
           </div>
         </div>

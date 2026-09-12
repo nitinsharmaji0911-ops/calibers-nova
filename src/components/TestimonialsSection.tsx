@@ -12,7 +12,7 @@ const column1: ReviewItem[] = [
     id: 'c1-1',
     name: 'Akash Verma',
     batch: 'Class 12 — Commerce & Entrance',
-    text: 'Hey guys, I am Akash. When I joined Caliber’s Nova in Class 11th, I was genuinely intimidated by accountancy and higher mathematics. But Pankaj Sir and Rahul Sir break down every complex concept into intuitive first principles. Within a year, my test scores jumped from 60s to 90s, and I scored 96.2% in my 12th boards while clearing my foundation entrance. The weekly test series and 1-on-1 doubt clearing genuinely changed everything for me. If you’re serious about your academics in Nagpur, this institute is unmatched!',
+    text: 'Hey guys, I am Akash. When I joined Caliber’s Nova in Class 11th, I was genuinely intimidated by accountancy and higher mathematics. But Pankaj Sir and the faculty break down every complex concept into intuitive first principles. Within a year, my test scores jumped from 60s to 90s, and I scored 96.2% in my 12th boards while clearing my foundation entrance. The weekly test series and 1-on-1 doubt clearing genuinely changed everything for me. If you’re serious about your academics in Nagpur, this institute is unmatched!',
   },
   {
     id: 'c1-2',
@@ -54,7 +54,7 @@ const column3: ReviewItem[] = [
     id: 'c3-1',
     name: 'Prachi Kulkarni',
     batch: 'Class 12 Science & Competitive',
-    text: 'Hi, I am Prachi. I joined Caliber’s Nova with a lot of self-doubt about handling boards alongside competitive entrance prep. Most institutes treat you like a roll number, but here, Rahul Sir sat down with me individually to map out a realistic study roadmap. The doubt-solving sessions go on until you’re 100% confident. That personal attention gave me the belief that I could excel. I scored 95.8% in boards and secured a top percentile in my entrance exams. It’s a decision you’ll look back on as the turning point of your student life.',
+    text: 'Hi, I am Prachi. I joined Caliber’s Nova with a lot of self-doubt about handling boards alongside competitive entrance prep. Most institutes treat you like a roll number, but here, Pankaj Sir sat down with me individually to map out a realistic study roadmap. The doubt-solving sessions go on until you’re 100% confident. That personal attention gave me the belief that I could excel. I scored 95.8% in boards and secured a top percentile in my entrance exams. It’s a decision you’ll look back on as the turning point of your student life.',
   },
   {
     id: 'c3-2',

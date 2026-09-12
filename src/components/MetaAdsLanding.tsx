@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     badge: 'Class 12 Commerce & Accounts',
     achievement: '96.2% Board Ranker • Foundation Cleared',
     quote:
-      'Rahul Sir and Pankaj Sir make even the most intricate accounts and economics principles intuitive. Because batches are capped at 25, every test paper is analyzed line-by-line with you. My conceptual confidence skyrocketed within the first two months.',
+      'Pankaj Sir and the senior faculty make even the most intricate accounts and economics principles intuitive. Because cohorts are kept focused and disciplined, every test paper is analyzed line-by-line with you. My conceptual confidence skyrocketed within the first two months.',
   },
   {
     name: 'Prachi Kulkarni',
@@ -56,12 +56,12 @@ const faqItems = [
     a: 'The 2-Day Pass gives you complete, unrestricted access to 2 live syllabus lectures with our regular batch. You experience our actual teaching methodology, participate in the classroom, meet the founders, and receive a complimentary 1-on-1 Academic Diagnostic Roadmap. There is zero financial commitment or obligation.',
   },
   {
-    q: 'Why does Caliber’s Nova strictly enforce 25 students per batch?',
-    a: 'In batches of 80 to 200 students, over 70% of students hesitate to ask doubts and quietly fall behind. We cap our cohorts at 25 so our founders can personally track every student’s homework, conceptual accuracy, and test progression every single week.',
+    q: 'Why does Caliber’s Nova maintain focused, limited cohorts?',
+    a: 'In massive 100+ student coaching halls, over 70% of students hesitate to ask doubts and quietly fall behind. We intentionally keep our cohorts small and focused so our founders can personally track every student’s homework, conceptual accuracy, and test progression every single week.',
   },
   {
     q: 'Who will actually be teaching my child?',
-    a: 'Our core senior founders—Pankaj Agrawal Sir and Rahul Rai Sir—personally teach the batches. We do not outsource your child’s critical academic years to inexperienced junior faculty or part-time tutors.',
+    a: 'Founder Pankaj Agrawal Sir and our senior academic faculty personally teach the batches. We do not outsource your child’s critical academic years to inexperienced junior faculty or part-time tutors.',
   },
   {
     q: 'Where are your campuses located in Nagpur?',
@@ -139,9 +139,9 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
       <header className="sticky top-0 z-50 px-4 sm:px-6 pt-3 pb-3 backdrop-blur-xl bg-[#070103]/80 border-b border-white/[0.06]">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#FFD21F] to-[#E6B800] p-[1.5px] flex items-center justify-center shadow-lg shadow-[#FFD21F]/15">
-              <div className="w-full h-full bg-[#120306] rounded-[10px] flex items-center justify-center">
-                <span className="text-[#FFD21F] font-black text-base tracking-tighter">N</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFD21F] to-[#E6B800] p-[1.5px] flex items-center justify-center shadow-lg shadow-[#FFD21F]/15">
+              <div className="w-full h-full bg-[#120306] rounded-[10px] flex items-center justify-center p-1">
+                <img src="/assets/logo-white.png" alt="Caliber's Nova Logo" className="w-full h-full object-contain" />
               </div>
             </div>
             <div>
@@ -186,7 +186,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.1] backdrop-blur-md mb-8 shadow-inner">
             <span className="w-2 h-2 rounded-full bg-[#FFD21F] animate-pulse" />
             <span className="text-xs font-semibold tracking-wide text-zinc-300 uppercase">
-              Admissions Open 2026–27 • Strictly 25 Seats Per Batch
+              Admissions Open 2026–27 • Limited Cohort Admissions
             </span>
           </div>
 
@@ -201,10 +201,10 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
           {/* Refined Sub-headline */}
           <p className="mt-6 text-base sm:text-xl text-zinc-300 max-w-2xl mx-auto font-normal leading-relaxed">
-            Where deep conceptual mastery replaces rote memorization. Mentored personally by founders{' '}
+            Where deep conceptual mastery replaces rote memorization. Mentored personally by founder{' '}
             <strong className="text-white font-semibold">Pankaj Agrawal</strong> &{' '}
-            <strong className="text-white font-semibold">Rahul Rai</strong> in exclusive{' '}
-            <span className="text-[#FFD21F] font-semibold">25-student cohorts</span>.
+            <strong className="text-white font-semibold">senior faculty</strong> with{' '}
+            <span className="text-[#FFD21F] font-semibold">individualized mentor attention</span>.
           </p>
 
           {/* High-Impact Actions */}
@@ -235,8 +235,8 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               <div className="text-xs text-zinc-400 font-medium">Nagpur Academic Legacy (Est. 2007)</div>
             </div>
             <div className="space-y-1">
-              <div className="text-2xl sm:text-3xl font-black text-[#FFD21F] tracking-tight">25 Max</div>
-              <div className="text-xs text-zinc-400 font-medium">Strict Student Cap per Cohort</div>
+              <div className="text-2xl sm:text-3xl font-black text-[#FFD21F] tracking-tight">Focused</div>
+              <div className="text-xs text-zinc-400 font-medium">Personal Mentorship & Attention</div>
             </div>
             <div className="space-y-1">
               <div className="text-2xl sm:text-3xl font-black text-white tracking-tight">100%</div>
@@ -266,7 +266,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
           {/* Linear Bento Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Card 1: 25 Student Limit */}
+            {/* Card 1: Focused Learning Environment */}
             <div className="relative rounded-3xl p-7 sm:p-8 bg-gradient-to-b from-[#18040a] via-[#100206] to-[#0a0104] border border-white/[0.08] hover:border-[#FFD21F]/30 transition-all duration-300 group overflow-hidden">
               <div className="w-12 h-12 rounded-2xl bg-[#FFD21F]/10 border border-[#FFD21F]/20 flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-[#FFD21F]" />
@@ -275,12 +275,12 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 01 / INTELLECTUAL SANCTUARY
               </div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">
-                The Strict 25-Student Rule
+                High-Attention Cohorts
               </h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                In 100-student commercial halls, 75% of students sit silently, unable to voice doubts. Our
-                hard 25-student cap guarantees continuous eye-contact, weekly notebook verification, and
-                personalized attention from senior faculty.
+                In massive commercial coaching halls, over 70% of students sit silently, unable to voice doubts. We
+                maintain focused, disciplined cohorts that guarantee continuous eye-contact, weekly notebook verification, and
+                genuine 1-on-1 access to senior faculty.
               </p>
             </div>
 
@@ -314,8 +314,8 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 Mentored by the Founders
               </h3>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                No inexperienced interns or rotating guest lecturers. Co-founders Pankaj Agrawal Sir and
-                Rahul Rai Sir bring 19+ years of pedagogical mastery directly to your child every single day,
+                No inexperienced interns or rotating guest lecturers. Founder Pankaj Agrawal Sir and
+                senior faculty bring 19+ years of pedagogical mastery directly to your child every single day,
                 setting an uncompromising academic bar.
               </p>
             </div>
@@ -363,11 +363,11 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 <ul className="space-y-3 text-sm text-zinc-200">
                   <li className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-[#FFD21F] shrink-0 mt-0.5" />
-                    <span>Strict cap of 25 students—every seat is in direct view of the faculty</span>
+                    <span>Focused, non-crowded cohorts—every student is in direct view of the faculty</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-[#FFD21F] shrink-0 mt-0.5" />
-                    <span>100% core instruction by senior founders with 19+ years experience</span>
+                    <span>100% core instruction by founder Pankaj Agrawal Sir & senior faculty</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <Check className="w-4 h-4 text-[#FFD21F] shrink-0 mt-0.5" />
@@ -767,30 +767,30 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           </div>
         </section>
 
-        {/* 7. Mentors & Institutional Authority */}
+        {/* 7. Institutional Authority & Leadership */}
         <section className="py-16 px-4 sm:px-6 max-w-5xl mx-auto border-t border-white/[0.06]">
           <div className="rounded-3xl bg-white/[0.02] border border-white/[0.08] p-8 sm:p-10 flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/3 flex justify-center">
-              <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-3xl overflow-hidden border-2 border-[#FFD21F]/40 shadow-xl shadow-black/80">
+              <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-3xl bg-gradient-to-br from-[#240810] to-[#120306] flex items-center justify-center p-7 border-2 border-[#FFD21F]/40 shadow-2xl shadow-black/90 group">
                 <img
-                  src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWklwrHrwyynYS-US9ahsSMEKSy1QKdhk5yWfBQ-uQGScL3gJ7kTbKySASN6q1aTMOwVeaf3N8WY7M5dt-c5Blzl40nU8szTOVtA-coY5VkBo0JSNuhl4wtV_XXbGZLHPC40f6be3AYitAp2=w800"
-                  alt="Founders of Caliber's Nova"
-                  className="w-full h-full object-cover object-center filter contrast-105"
+                  src="/assets/logo-white.png"
+                  alt="Caliber's Nova Logo"
+                  className="w-full h-full object-contain filter drop-shadow-[0_10px_25px_rgba(255,210,31,0.25)] transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             </div>
 
             <div className="w-full md:w-2/3 space-y-4 text-left">
               <div className="inline-block text-[11px] font-bold uppercase tracking-widest text-[#FFD21F] px-3 py-1 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/20">
-                MEET THE MENTORS
+                ACADEMIC LEADERSHIP
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                Pankaj Agrawal & Rahul Rai
+                Pankaj Agrawal & Academic Mentors
               </h3>
               <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal">
                 “When you enroll at Caliber’s Nova, you aren’t being handed over to an outsourced tutor.
-                We personally prepare every lecture, review every weekly assessment, and mentor every student
-                until their academic potential is fully realized.”
+                Founder Pankaj Agrawal personally guides the academic direction, reviews weekly assessments, and mentors every student
+                until their true potential is fully unlocked.”
               </p>
               <div className="flex flex-wrap items-center gap-6 pt-2 text-xs font-semibold text-zinc-400">
                 <div>
