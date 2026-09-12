@@ -162,9 +162,23 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
             Clear Your AT/KT on Next Attempt
           </h1>
-          <p className="text-xs sm:text-sm text-zinc-400">
-            BBA • B.Com • BCCA • Mentored by Founder <span className="text-white font-medium">Pankaj Agrawal Sir</span>
-          </p>
+          {/* Continuous Moving Line */}
+          <div className="relative w-full overflow-hidden mask-marquee-horizontal py-1 select-none">
+            <div className="flex gap-4 w-max animate-marquee-left whitespace-nowrap text-xs sm:text-sm text-zinc-400 font-medium">
+              {[0, 1].map((groupIdx) => (
+                <div key={groupIdx} className="flex items-center gap-4 shrink-0">
+                  <span>
+                    BBA • B.Com • BCCA • Mentored by Founder <span className="text-white font-semibold">Pankaj Agrawal Sir</span>
+                  </span>
+                  <span className="text-[#FFD21F] text-xs">✦</span>
+                  <span>
+                    BBA • B.Com • BCCA • Mentored by Founder <span className="text-white font-semibold">Pankaj Agrawal Sir</span>
+                  </span>
+                  <span className="text-[#FFD21F] text-xs">✦</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Lead Capture Form Card */}
