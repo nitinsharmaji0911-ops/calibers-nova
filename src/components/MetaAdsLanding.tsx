@@ -229,40 +229,40 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
       <main className="relative z-10">
         {/* 2. Hero Section: High-Impact Editorial Swagger */}
-        <section className="pt-10 sm:pt-16 pb-14 px-4 sm:px-6 max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <section className="pt-6 sm:pt-16 pb-10 sm:pb-14 px-4 sm:px-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center">
             {/* Left: Bold Authority Typography */}
-            <div className="lg:col-span-7 text-left space-y-6">
+            <div className="lg:col-span-7 text-left space-y-4 sm:space-y-6">
               {/* Eyebrow Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/30 backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/30 backdrop-blur-md">
                 <Flame className="w-3.5 h-3.5 text-[#FFD21F]" />
-                <span className="text-xs font-bold tracking-wide text-[#FFD21F] uppercase">
+                <span className="text-[11px] sm:text-xs font-bold tracking-wide text-[#FFD21F] uppercase">
                   Admissions Open 2026–27 • Limited Cohorts
                 </span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.04]">
-                Where Nagpur’s <br />
-                <span className="text-[#FFD21F] drop-shadow-[0_4px_20px_rgba(255,210,31,0.25)]">
-                  Top 1%
-                </span>{' '}
-                Minds <br />
-                Are Built.
+              <h1 className="text-3xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.08] sm:leading-[1.04]">
+                Where Nagpur’s <span className="text-[#FFD21F] drop-shadow-[0_4px_20px_rgba(255,210,31,0.25)]">Top 1%</span> Minds Are Built.
               </h1>
 
-              {/* Sub-headline */}
-              <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed max-w-xl">
-                Tired of massive 100-student coaching halls where nobody knows your name? Learn directly
-                from founder <strong className="text-white font-semibold">Pankaj Agrawal</strong> and senior
-                faculty with concept-first derivations, daily doubt clearance, and proven board & entrance ranks.
+              {/* Sub-headline - Compact on mobile */}
+              <p className="text-sm sm:text-lg text-zinc-300 font-normal leading-relaxed max-w-xl">
+                <span className="sm:hidden">
+                  Nagpur’s benchmark for Board & Entrance ranks. Mentored personally by founder <strong className="text-white font-semibold">Pankaj Agrawal</strong> in focused cohorts with daily doubt solving.
+                </span>
+                <span className="hidden sm:inline">
+                  Tired of massive 100-student coaching halls where nobody knows your name? Learn directly
+                  from founder <strong className="text-white font-semibold">Pankaj Agrawal</strong> and senior
+                  faculty with concept-first derivations, daily doubt clearance, and proven board & entrance ranks.
+                </span>
               </p>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              {/* CTAs - Single Primary on Mobile */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
                 <button
                   onClick={scrollToForm}
-                  className="inline-flex items-center justify-center gap-2.5 bg-[#FFD21F] hover:bg-[#ffe053] text-black font-extrabold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-200 shadow-xl shadow-[#FFD21F]/25 hover:shadow-[#FFD21F]/40 active:scale-95 group"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#FFD21F] hover:bg-[#ffe053] text-black font-extrabold text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-200 shadow-xl shadow-[#FFD21F]/25 hover:shadow-[#FFD21F]/40 active:scale-95 group"
                 >
                   <span>Claim Free 2-Day Trial Pass</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -272,40 +272,40 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   href="https://wa.me/919595253778?text=Hello%20Caliber’s%20Nova,%20I%20am%20interested%20in%20the%20Free%202-Day%20Classroom%20Trial%20Pass."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-white/[0.05] hover:bg-white/[0.1] text-white font-semibold text-sm sm:text-base px-7 py-4 rounded-full border border-white/[0.12] transition-all backdrop-blur-md"
+                  className="hidden sm:inline-flex items-center justify-center gap-2.5 bg-white/[0.05] hover:bg-white/[0.1] text-white font-semibold text-sm sm:text-base px-7 py-4 rounded-full border border-white/[0.12] transition-all backdrop-blur-md"
                 >
                   <MessageCircle className="w-4 h-4 text-[#25D366]" />
                   <span>WhatsApp Mentors</span>
                 </a>
               </div>
 
-              {/* Proof Strip */}
-              <div className="pt-6 border-t border-white/[0.08] grid grid-cols-3 gap-4">
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-white">19+ Yrs</div>
-                  <div className="text-xs text-zinc-400 font-medium">Nagpur Legacy</div>
+              {/* Proof Strip - Compact on mobile */}
+              <div className="pt-3 sm:pt-6 border-t border-white/[0.08] flex items-center justify-between sm:grid sm:grid-cols-3 gap-2 sm:gap-4">
+                <div className="flex items-baseline gap-1.5 sm:block">
+                  <div className="text-xl sm:text-3xl font-black text-white">19+ Yrs</div>
+                  <div className="text-[10px] sm:text-xs text-zinc-400 font-medium">Nagpur Legacy</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#FFD21F]">4.9 ★</div>
-                  <div className="text-xs text-zinc-400 font-medium">900+ Reviews</div>
+                <div className="flex items-baseline gap-1.5 sm:block">
+                  <div className="text-xl sm:text-3xl font-black text-[#FFD21F]">4.9 ★</div>
+                  <div className="text-[10px] sm:text-xs text-zinc-400 font-medium">900+ Reviews</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-white">15k+</div>
-                  <div className="text-xs text-zinc-400 font-medium">Alumni Guided</div>
+                <div className="flex items-baseline gap-1.5 sm:block">
+                  <div className="text-xl sm:text-3xl font-black text-white">15k+</div>
+                  <div className="text-[10px] sm:text-xs text-zinc-400 font-medium">Alumni</div>
                 </div>
               </div>
             </div>
 
             {/* Right: Authentic GMB Photo Feature Card with Handwritten Annotation */}
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative mt-4 lg:mt-0">
               {/* Handwritten Floating Annotation */}
-              <div className="absolute -top-6 -right-2 sm:-right-6 z-20 pointer-events-none select-none text-right">
-                <div className="handwriting text-2xl sm:text-3xl text-zinc-100 font-bold rotate-[6deg] drop-shadow-lg">
+              <div className="absolute -top-5 -right-1 sm:-top-6 sm:-right-6 z-20 pointer-events-none select-none text-right">
+                <div className="handwriting text-xl sm:text-3xl text-zinc-100 font-bold rotate-[5deg] drop-shadow-lg">
                   Real Classrooms. <br />
                   <span className="text-[#FFD21F]">Real Ranks.</span>
                 </div>
                 <svg
-                  className="w-12 h-9 text-[#FFD21F] ml-auto mr-4"
+                  className="w-10 h-7 sm:w-12 sm:h-9 text-[#FFD21F] ml-auto mr-3 sm:mr-4"
                   viewBox="0 0 60 45"
                   fill="none"
                 >
@@ -328,23 +328,23 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               </div>
 
               {/* Main Photo Card */}
-              <div className="relative rounded-[32px] overflow-hidden border-2 border-white/[0.12] bg-[#1a050d] shadow-2xl shadow-black/90 group">
+              <div className="relative rounded-2xl sm:rounded-[32px] overflow-hidden border-2 border-white/[0.12] bg-[#1a050d] shadow-2xl shadow-black/90 group">
                 <img
                   src="/assets/gmb_photo_1.jpg"
                   alt="Real Caliber's Nova Classroom with Students"
-                  className="w-full h-[380px] sm:h-[460px] object-cover object-center filter contrast-105 transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-[260px] sm:h-[460px] object-cover object-center filter contrast-105 transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#120306] via-transparent to-black/30 pointer-events-none" />
 
                 {/* Overlaid Card Badge */}
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#1c060f]/90 backdrop-blur-md border border-white/10 text-left">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#1c060f]/90 backdrop-blur-md border border-white/10 text-left">
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-[#FFD21F] px-2 py-0.5 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/20">
-                      LIVE CLASSROOM • MAHAL CAMPUS
+                      LIVE CLASSROOM • MAHAL
                     </span>
-                    <span className="text-xs text-zinc-400">जीत की ज़िद</span>
+                    <span className="text-[11px] sm:text-xs text-zinc-400">जीत की ज़िद</span>
                   </div>
-                  <p className="text-xs sm:text-sm text-zinc-200 font-medium">
+                  <p className="text-[11px] sm:text-sm text-zinc-200 font-medium">
                     Focused lecture under personal mentor oversight. No backbenchers, zero hesitation.
                   </p>
                 </div>
