@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MapPin, Mail } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface MetaAdsLandingProps {
@@ -91,6 +91,7 @@ const ReviewCard: React.FC<{ review: ReviewItem }> = ({ review }) => (
 export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }) => {
   const [studentName, setStudentName] = useState('');
   const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [degree, setDegree] = useState('B.Com');
   const [subject, setSubject] = useState('Financial Accounts');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -98,8 +99,8 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!studentName.trim() || !phone.trim()) {
-      alert('Please enter your name and mobile number.');
+    if (!studentName.trim() || !phone.trim() || !email.trim()) {
+      alert('Please fill in your name, mobile number, and email.');
       return;
     }
 
@@ -123,7 +124,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
 
   return (
     <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#FFD21F] selection:text-black flex flex-col justify-between">
-      {/* 1. Official Website Logo & Header (No WhatsApp, Sadar removed) */}
+      {/* 1. Official Website Logo & Header (Institute number removed, official emblem) */}
       <header className="px-4 sm:px-6 py-3.5 border-b border-white/[0.06] sticky top-0 z-50 bg-[#0c090a]/90 backdrop-blur-xl">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           {/* Official circular emblem logo matching Navbar.tsx */}
@@ -145,19 +146,16 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
             </div>
           </div>
 
-          <a
-            href="tel:+919595253778"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-300 hover:text-white px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 transition-all hover:border-[#FFD21F]/40"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#FFD21F]" />
-            <span>+91 95952 53778</span>
-          </a>
+          <div className="flex items-center gap-2 text-xs font-semibold text-zinc-300 bg-white/[0.04] px-3 py-1.5 rounded-full border border-white/[0.08]">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>Mahal, Nagpur</span>
+          </div>
         </div>
       </header>
 
       {/* 2. Main Body */}
       <main className="flex-1 max-w-lg mx-auto w-full px-4 sm:px-6 py-6 sm:py-10 space-y-8">
-        {/* Punchy Title (No generic 'fast track' jargon) */}
+        {/* Title */}
         <div className="text-center space-y-2">
           <div className="inline-block text-[10px] sm:text-[11px] font-semibold text-[#FFD21F] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/20">
             RTMNU • Commerce Backlog Cell
@@ -170,27 +168,26 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           </p>
         </div>
 
-        {/* Lead Capture Form Card */}
+        {/* Lead Capture Form Card (Student enters both Mobile Number and Email ID) */}
         <div className="p-5 sm:p-6 rounded-2xl bg-[#141113] border border-white/[0.08] shadow-2xl">
           {isSuccess ? (
             <div className="py-8 text-center space-y-3">
               <div className="w-12 h-12 bg-[#FFD21F]/10 border border-[#FFD21F]/30 rounded-full flex items-center justify-center mx-auto text-[#FFD21F]">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-white">Request Received!</h3>
-              <p className="text-xs text-zinc-400 max-w-xs mx-auto">
-                Our academic desk will call you at <strong className="text-white">{phone}</strong> shortly with your passing plan & batch timings.
+              <h3 className="text-base font-bold text-white">Application Received!</h3>
+              <p className="text-xs text-zinc-300 max-w-xs mx-auto leading-relaxed">
+                Thank you, <strong className="text-white">{studentName}</strong>! Our academic desk will call you at <strong className="text-white">{phone}</strong> and send your passing roadmap to <strong className="text-white">{email}</strong>.
               </p>
-              <a
-                href="tel:+919595253778"
-                className="inline-flex items-center gap-2 text-xs font-bold text-black bg-[#FFD21F] hover:bg-[#e6bd1b] px-4 py-2 rounded-lg mt-2 transition-all"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                <span>Call Us Directly</span>
-              </a>
+              <div className="pt-2">
+                <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-semibold bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/20">
+                  <MapPin className="w-3.5 h-3.5" />
+                  <span>Mahal Campus, Natraj Tower</span>
+                </span>
+              </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
+            <form onSubmit={handleSubmit} className="space-y-3 text-left">
               <div>
                 <label className="block text-[11px] font-medium text-zinc-400 mb-1">
                   Full Name
@@ -200,7 +197,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   required
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
-                  placeholder="Enter your name"
+                  placeholder="Enter your full name"
                   className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
                 />
               </div>
@@ -215,6 +212,20 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="10-digit mobile number"
+                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your.email@example.com"
                   className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
                 />
               </div>
@@ -259,7 +270,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 </select>
               </div>
 
-              {/* Form submit button (No 'fast track' wording) */}
+              {/* Form submit button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -275,8 +286,9 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                 )}
               </button>
 
-              <p className="text-[10px] text-center text-zinc-500 pt-1">
-                📍 Mahal Campus: Natraj Tower, Near Tilak Statue, Nagpur
+              <p className="text-[10px] text-center text-zinc-500 pt-1 flex items-center justify-center gap-1">
+                <MapPin className="w-3 h-3 text-[#FFD21F]" />
+                <span>Mahal Campus: Natraj Tower, Near Tilak Statue, Nagpur</span>
               </p>
             </form>
           )}
@@ -318,11 +330,11 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         </div>
       </main>
 
-      {/* 4. Footer (Mahal Only, No Sadar) */}
+      {/* 4. Footer (Mahal Only, No Institute Phone Number) */}
       <footer className="py-4 border-t border-white/[0.06] text-center text-xs text-zinc-500">
         <p>© 2026 Caliber’s Nova • Mahal Campus, Nagpur</p>
         <p className="mt-0.5 text-zinc-400">
-          Helpline: <a href="tel:+919595253778" className="text-zinc-200 hover:text-white">+91 95952 53778</a>
+          Email: <a href="mailto:info@calibernova.in" className="text-zinc-200 hover:text-white">info@calibernova.in</a>
         </p>
       </footer>
     </div>
