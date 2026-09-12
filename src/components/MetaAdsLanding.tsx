@@ -168,11 +168,11 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               {[0, 1].map((groupIdx) => (
                 <div key={groupIdx} className="flex items-center gap-4 shrink-0">
                   <span>
-                    BBA • B.Com • BCCA • Mentored by Founder <span className="text-white font-semibold">Pankaj Agrawal Sir</span>
+                    BBA • B.Com • BCCA • Mentored by Founder&nbsp;&nbsp;<span className="text-white font-semibold">Pankaj Agrawal Sir</span>
                   </span>
                   <span className="text-[#FFD21F] text-xs">✦</span>
                   <span>
-                    BBA • B.Com • BCCA • Mentored by Founder <span className="text-white font-semibold">Pankaj Agrawal Sir</span>
+                    BBA • B.Com • BCCA • Mentored by Founder&nbsp;&nbsp;<span className="text-white font-semibold">Pankaj Agrawal Sir</span>
                   </span>
                   <span className="text-[#FFD21F] text-xs">✦</span>
                 </div>
