@@ -27,7 +27,7 @@ export const LearningMethod: React.FC = () => {
 
   return (
     <section id="method" className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-[28px] sm:rounded-[36px] bg-[#1d060b] border border-white/[0.08] p-5 sm:p-10 lg:p-12 text-left">
+      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#64152D] via-[#521124] to-[#400B1A] border border-white/15 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
         
         {/* Eyebrow & Headline with curved arrow */}
         <div className="flex items-start justify-between mb-6 sm:mb-8">
@@ -69,14 +69,14 @@ export const LearningMethod: React.FC = () => {
           </div>
         </div>
 
-        {/* 4 Dark Horizontal Rounded Pill Cards with Yellow Numbers & Icons */}
+        {/* 4 Lighter Maroon Horizontal Rounded Pill Cards with Yellow Numbers & Icons */}
         <div className="space-y-3 mb-6 sm:mb-8">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.num}
-                className="flex items-center gap-4 px-5 py-3.5 rounded-2xl bg-[#280a12] border border-white/[0.06] hover:border-[#FFD21F]/30 transition-all duration-200"
+                className="flex items-center gap-4 px-5 py-3.5 rounded-2xl bg-[#6C1832]/80 border border-white/12 hover:border-[#FFD21F]/40 transition-all duration-200"
               >
                 <span className="text-xs font-mono font-bold text-[#FFD21F] w-6">
                   {step.num}
@@ -91,17 +91,17 @@ export const LearningMethod: React.FC = () => {
         </div>
 
         {/* Classroom Collaboration Photograph with Handwritten Annotation */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/[0.08] aspect-[4/3] group shadow-xl">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 aspect-[4/3] group shadow-xl">
           <img
             src="/assets/classroom.jpg"
             alt="Students in classroom"
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/85 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#400B1A]/85 via-transparent to-transparent pointer-events-none" />
 
           {/* Handwritten Annotation: "Progress Looks Good On You." */}
-          <div className="absolute top-3 right-3 sm:top-6 sm:right-6 bg-[#1c060e]/90 backdrop-blur-md px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl border border-white/15 text-left shadow-xl max-w-[130px] sm:max-w-none">
+          <div className="absolute top-3 right-3 sm:top-6 sm:right-6 bg-[#561327]/90 backdrop-blur-md px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl border border-white/20 text-left shadow-xl max-w-[130px] sm:max-w-none">
             <span className="handwriting text-base sm:text-2xl font-bold text-zinc-200 block leading-tight">
               Progress <br />
               <span className="text-[#FFD21F]">Looks Good</span> <br />

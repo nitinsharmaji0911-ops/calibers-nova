@@ -64,8 +64,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav
         className={`w-full pointer-events-auto transition-[background-color,border-color,box-shadow] duration-300 rounded-full px-3.5 sm:px-6 py-2 sm:py-3 flex items-center justify-between shadow-2xl ${
           scrolled
-            ? 'bg-[#180409]/95 backdrop-blur-xl border border-white/10 shadow-black/80'
-            : 'bg-[#180409]/85 backdrop-blur-lg border border-white/[0.08]'
+            ? 'bg-[#581327]/95 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/30'
+            : 'bg-[#581327]/85 backdrop-blur-lg border border-white/15'
         }`}
       >
         {/* Left: Brand Logo */}

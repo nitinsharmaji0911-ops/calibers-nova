@@ -58,12 +58,12 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#380C19] via-[#2B0813] to-[#1E050D] text-[#F5F3ED] selection:bg-[#FFD21F] selection:text-black relative antialiased overflow-x-hidden">
-      {/* Atmospheric Light Maroon Ambient Glows */}
+    <div className="min-h-screen bg-gradient-to-b from-[#781B37] via-[#63142C] to-[#4F0E22] text-[#F5F3ED] selection:bg-[#FFD21F] selection:text-black relative antialiased overflow-x-hidden">
+      {/* Atmospheric Lighter Maroon Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[#68152B]/25 rounded-full blur-[140px]" />
-        <div className="absolute top-[35%] right-[-10%] w-[600px] h-[600px] bg-[#521021]/25 rounded-full blur-[150px]" />
-        <div className="absolute top-[70%] left-[-10%] w-[600px] h-[600px] bg-[#5C1226]/20 rounded-full blur-[160px]" />
+        <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[#9E2448]/35 rounded-full blur-[140px]" />
+        <div className="absolute top-[35%] right-[-10%] w-[650px] h-[650px] bg-[#8A1E3E]/30 rounded-full blur-[150px]" />
+        <div className="absolute top-[70%] left-[-10%] w-[650px] h-[650px] bg-[#942044]/25 rounded-full blur-[160px]" />
       </div>
 
       {/* Floating Rounded Navbar with Categories Dropdown */}

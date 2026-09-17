@@ -77,9 +77,9 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
                 onSelectProgram(`${card.title} ${card.subtitle}`);
                 onOpenCounselling();
               }}
-              className={`group cursor-pointer rounded-2xl sm:rounded-3xl overflow-hidden bg-[#24080f] border transition-all duration-300 flex flex-col justify-between relative aspect-[3/4] ${
+              className={`group cursor-pointer rounded-2xl sm:rounded-3xl overflow-hidden bg-[#5E142B] border transition-all duration-300 flex flex-col justify-between relative aspect-[3/4] ${
                 isRelevant
-                  ? 'border-white/[0.08] hover:border-[#FFD21F]/50 shadow-lg'
+                  ? 'border-white/15 hover:border-[#FFD21F]/50 shadow-lg'
                   : 'opacity-40 grayscale border-white/5'
               }`}
             >
@@ -90,7 +90,7 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#140407] via-[#140407]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#420C1C] via-[#420C1C]/50 to-transparent" />
 
               {/* Bottom Card Meta matching mockup */}
               <div className="relative z-10 p-3.5 sm:p-5 mt-auto flex items-end justify-between w-full text-left">
@@ -142,7 +142,7 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
         </div>
 
         {/* Caliber's Nova Event Highlights Card with Modern Scrolling Effect (Real GMB Photos) */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/[0.08] bg-[#1d060b] p-4 sm:p-5 flex flex-col justify-between shadow-xl min-h-[220px] sm:min-h-[260px] group text-left">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 bg-[#5E142B] p-4 sm:p-5 flex flex-col justify-between shadow-xl min-h-[220px] sm:min-h-[260px] group text-left">
           
           {/* Top Bar */}
           <div className="flex items-center justify-between mb-2 sm:mb-3 z-10">
@@ -238,7 +238,7 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
                 <div
                   key={`${item.id}-${idx}`}
                   onClick={onOpenCounselling}
-                  className="cursor-pointer relative w-48 sm:w-56 h-36 sm:h-40 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 shrink-0 group/item bg-[#24080f] transition-all duration-300 hover:border-[#FFD21F]/40 hover:scale-[1.02]"
+                  className="cursor-pointer relative w-48 sm:w-56 h-36 sm:h-40 rounded-xl sm:rounded-2xl overflow-hidden border border-white/15 shrink-0 group/item bg-[#6E1933] transition-all duration-300 hover:border-[#FFD21F]/40 hover:scale-[1.02]"
                 >
                   <img
                     src={item.image}
@@ -246,7 +246,7 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
                     className="w-full h-full object-cover transition-transform duration-500 group-hover/item:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/95 via-[#140407]/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#420C1C]/95 via-[#420C1C]/40 to-transparent" />
                   
                   {/* Event Content Overlay */}
                   <div className="absolute inset-0 p-3 flex flex-col justify-between text-left">

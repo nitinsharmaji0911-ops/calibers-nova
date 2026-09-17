@@ -27,12 +27,12 @@ export const WhyCalibersNova: React.FC<WhyCalibersNovaProps> = ({ onOpenCounsell
 
   return (
     <section className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-[28px] sm:rounded-[36px] bg-[#1d060b] border border-white/[0.08] p-5 sm:p-10 lg:p-12 text-left">
+      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#64152D] via-[#521124] to-[#400B1A] border border-white/15 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
         
         {/* Section Header with Arrow */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <div>
-            <div className="text-[10px] sm:text-xs font-semibold text-zinc-400 mb-1">
+            <div className="text-[10px] sm:text-xs font-semibold text-zinc-300 mb-1">
               Why Caliber's Nova?
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -57,7 +57,7 @@ export const WhyCalibersNova: React.FC<WhyCalibersNovaProps> = ({ onOpenCounsell
             return (
               <div
                 key={item.title}
-                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#280a12] border border-white/[0.06] hover:border-[#FFD21F]/30 transition-all duration-200 flex flex-col justify-between aspect-[4/3] sm:aspect-auto"
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#6C1832]/80 border border-white/12 hover:border-[#FFD21F]/40 transition-all duration-200 flex flex-col justify-between aspect-[4/3] sm:aspect-auto shadow-md"
               >
                 <div className="w-8 h-8 rounded-lg bg-[#FFD21F]/15 flex items-center justify-center text-[#FFD21F] mb-3">
                   <Icon className="w-4 h-4" />

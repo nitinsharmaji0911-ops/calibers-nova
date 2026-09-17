@@ -8,7 +8,7 @@ interface FacultySectionProps {
 export const FacultySection: React.FC<FacultySectionProps> = ({ onOpenCounselling }) => {
   return (
     <section id="faculty" className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-[28px] sm:rounded-[36px] bg-[#1d060b] border border-white/[0.08] p-5 sm:p-10 lg:p-12 text-left">
+      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#64152D] via-[#521124] to-[#400B1A] border border-white/15 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
         
         {/* Section Header with Arrow */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">

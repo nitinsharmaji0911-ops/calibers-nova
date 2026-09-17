@@ -8,8 +8,8 @@ interface HeroSectionProps {
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCounselling }) => {
   return (
     <section className="hero-safe-pt pb-4 sm:pb-8 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-      {/* Large Dark Hero Container */}
-      <div className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#2e0b16] via-[#1f060d] to-[#140407] border border-white/[0.08] overflow-hidden shadow-2xl shadow-black/80 w-full">
+      {/* Large Hero Container (Lighter Maroon) */}
+      <div className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#68172F] via-[#541225] to-[#420C1C] border border-white/15 overflow-hidden shadow-2xl shadow-black/30 w-full">
         
         {/* Subtle Golden Glow behind the student */}
         <div className="absolute top-1/4 right-0 sm:right-10 w-80 sm:w-[450px] h-80 sm:h-[450px] bg-[#FFD21F]/15 rounded-full blur-[110px] pointer-events-none" />
@@ -115,8 +115,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCounselling }) =
         </div>
 
         {/* Integrated Stats Strip right below hero model */}
-        <div className="border-t border-white/[0.08] bg-[#1c060d]/95 backdrop-blur-md px-2 sm:px-8 py-3.5 sm:py-5 relative z-20">
-          <div className="grid grid-cols-3 divide-x divide-white/[0.08] text-center">
+        <div className="border-t border-white/15 bg-[#521124]/95 backdrop-blur-md px-2 sm:px-8 py-3.5 sm:py-5 relative z-20">
+          <div className="grid grid-cols-3 divide-x divide-white/15 text-center">
             
             {/* Col 1: 2007 Since */}
             <div className="flex flex-col items-center justify-center px-1">

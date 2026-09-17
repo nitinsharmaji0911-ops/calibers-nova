@@ -31,7 +31,7 @@ export const DigitalMarketingSection: React.FC = () => {
 
   return (
     <section id="digital-marketing" className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-      <div className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#280912] via-[#1c050c] to-[#120306] border border-white/10 p-6 sm:p-10 lg:p-12 text-left overflow-hidden shadow-2xl shadow-black/60">
+      <div className="relative rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#66162E] via-[#541225] to-[#400C1B] border border-white/15 p-6 sm:p-10 lg:p-12 text-left overflow-hidden shadow-2xl shadow-black/30">
         
         {/* Soft Ambient Accents */}
         <div className="absolute -top-24 -right-24 w-80 sm:w-96 h-80 sm:h-96 bg-[#2EA33A]/15 rounded-full blur-[110px] pointer-events-none" />
@@ -40,13 +40,13 @@ export const DigitalMarketingSection: React.FC = () => {
         <div className="relative z-10 space-y-6 sm:space-y-8">
           
           {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-white/[0.08] pb-5 sm:pb-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2EA33A]/15 border border-[#2EA33A]/30 text-[#4ADE80] text-[10px] sm:text-xs font-bold uppercase tracking-wider w-fit">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-white/10 pb-5 sm:pb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2EA33A]/20 border border-[#2EA33A]/40 text-[#4ADE80] text-[10px] sm:text-xs font-bold uppercase tracking-wider w-fit">
               <Sparkles className="w-3.5 h-3.5 text-[#4ADE80] shrink-0" />
               <span>Career Acceleration • Partner Platform</span>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-zinc-400 font-medium">
+            <div className="flex items-center gap-2 text-xs text-zinc-300 font-medium">
               <span>Upskilling Partner:</span>
               <span className="text-white font-bold tracking-wide flex items-center gap-1">
                 WELURIK
@@ -61,7 +61,7 @@ export const DigitalMarketingSection: React.FC = () => {
               Master Digital Marketing & <br />
               AI Tools with <span className="text-[#4ADE80]">Welurik.</span>
             </h2>
-            <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-200 font-normal leading-relaxed">
               Complement your college degree or board exams with high-demand, high-income practical skills. Learn performance advertising, SEO, social media marketing, and AI automation with Nagpur’s premier career school.
             </p>
           </div>
@@ -73,14 +73,14 @@ export const DigitalMarketingSection: React.FC = () => {
               return (
                 <div
                   key={item.title}
-                  className="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-[#4ADE80]/40 transition-all duration-300 flex flex-col justify-between group hover:bg-white/[0.05]"
+                  className="p-4 sm:p-5 rounded-2xl bg-[#6E1933]/70 border border-white/15 hover:border-[#4ADE80]/50 transition-all duration-300 flex flex-col justify-between group hover:bg-[#7D1D3A]/80 shadow-md"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <div className="w-9 h-9 rounded-xl bg-[#2EA33A]/15 border border-[#2EA33A]/30 flex items-center justify-center text-[#4ADE80] group-hover:scale-110 transition-transform">
+                      <div className="w-9 h-9 rounded-xl bg-[#2EA33A]/20 border border-[#2EA33A]/40 flex items-center justify-center text-[#4ADE80] group-hover:scale-110 transition-transform">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <span className="text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/5 text-zinc-400 border border-white/10">
+                      <span className="text-[9px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/20 text-zinc-300 border border-white/10">
                         {item.tag}
                       </span>
                     </div>
@@ -89,12 +89,12 @@ export const DigitalMarketingSection: React.FC = () => {
                       {item.title}
                     </h3>
 
-                    <p className="text-xs text-zinc-400 leading-relaxed">
+                    <p className="text-xs text-zinc-300 leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-white/[0.06] flex items-center gap-1.5 text-[11px] font-semibold text-zinc-400 group-hover:text-zinc-200">
+                  <div className="pt-3 mt-3 border-t border-white/10 flex items-center gap-1.5 text-[11px] font-semibold text-zinc-300 group-hover:text-white">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#4ADE80] shrink-0" />
                     <span>Included in Course</span>
                   </div>
@@ -104,7 +104,7 @@ export const DigitalMarketingSection: React.FC = () => {
           </div>
 
           {/* Bottom Action Strip with Redirect Button */}
-          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/[0.08]">
+          <div className="pt-2 sm:pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-5 rounded-2xl bg-[#541225]/80 border border-white/15">
             <div className="space-y-0.5">
               <div className="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
                 <span>Want to see full syllabus, fees & batch dates?</span>
