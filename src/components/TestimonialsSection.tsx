@@ -135,10 +135,10 @@ export const TestimonialsSection: React.FC = () => {
       <div className="relative h-[560px] sm:h-[650px] lg:h-[750px] overflow-hidden mask-marquee-vertical">
         
         {/* Top Gradient Fade Overlay */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-b from-[#140407] via-[#140407]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-b from-[#2B0813] via-[#2B0813]/80 to-transparent z-20" />
 
         {/* Bottom Gradient Fade Overlay */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-t from-[#140407] via-[#140407]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-t from-[#2B0813] via-[#2B0813]/80 to-transparent z-20" />
 
         {/* 2-Column on Mobile, 4-Column on Desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 h-full items-start">

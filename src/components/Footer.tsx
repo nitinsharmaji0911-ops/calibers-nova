@@ -3,7 +3,7 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="contact" className="bg-[#140407] text-zinc-400 text-left pt-12 pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <footer id="contact" className="bg-transparent text-zinc-400 text-left pt-12 pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/[0.08] relative z-10">
       <div className="space-y-8">
         
         {/* Top Header Row: Logo & Social Icons */}

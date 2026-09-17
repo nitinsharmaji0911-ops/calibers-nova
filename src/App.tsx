@@ -12,6 +12,7 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { CounsellingModal } from './components/CounsellingModal';
 import { MetaAdsLanding } from './components/MetaAdsLanding';
+import { DigitalMarketingSection } from './components/DigitalMarketingSection';
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -57,8 +58,14 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#140407] text-[#F5F3ED] selection:bg-[#FFD21F] selection:text-black relative antialiased">
-      
+    <div className="min-h-screen bg-gradient-to-b from-[#380C19] via-[#2B0813] to-[#1E050D] text-[#F5F3ED] selection:bg-[#FFD21F] selection:text-black relative antialiased overflow-x-hidden">
+      {/* Atmospheric Light Maroon Ambient Glows */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[#68152B]/25 rounded-full blur-[140px]" />
+        <div className="absolute top-[35%] right-[-10%] w-[600px] h-[600px] bg-[#521021]/25 rounded-full blur-[150px]" />
+        <div className="absolute top-[70%] left-[-10%] w-[600px] h-[600px] bg-[#5C1226]/20 rounded-full blur-[160px]" />
+      </div>
+
       {/* Floating Rounded Navbar with Categories Dropdown */}
       <Navbar
         selectedCategory={selectedCategory}
@@ -67,7 +74,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Flow Matching Exact Design Sequence */}
-      <main className="space-y-4 sm:space-y-6">
+      <main className="space-y-4 sm:space-y-6 relative z-10">
         
         {/* Screen 1: Hero Section with Integrated Stats Strip */}
         <HeroSection onOpenCounselling={() => handleOpenCounselling()} />
@@ -78,6 +85,9 @@ export const App: React.FC = () => {
           onSelectProgram={(name) => handleOpenCounselling(name)}
           onOpenCounselling={() => handleOpenCounselling()}
         />
+
+        {/* Featured Career Acceleration: Welurik Digital Marketing Course */}
+        <DigitalMarketingSection />
 
         {/* Screen 2: Learning Method (The Caliber's Nova Method) */}
         <LearningMethod />
