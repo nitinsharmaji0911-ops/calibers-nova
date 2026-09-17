@@ -42,6 +42,24 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
       image: '/assets/student-writing.jpg',
       category: ['Class 11th', 'Class 12th'],
     },
+    {
+      id: 'personality-dev',
+      title: 'Personality Dev',
+      subtitle: 'Speaking & Leadership',
+      image: '/assets/student-group.jpg',
+      category: ['All', 'Career Skills'],
+      badge: 'Grooming',
+    },
+    {
+      id: 'digital-marketing',
+      title: 'Digital Marketing',
+      subtitle: 'Welurik • Live AI Tools',
+      image: '/assets/career-books.jpg',
+      category: ['All', 'Career Skills'],
+      isExternal: true,
+      externalUrl: 'https://welurik.com',
+      badge: 'Welurik ↗',
+    },
   ];
 
   return (
@@ -63,20 +81,26 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
         </button>
       </div>
 
-      {/* 2x2 Grid of Cards on mobile, expanding to 4-cols or bento on desktop */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mb-3 sm:mb-5">
+      {/* 6-Card Grid: 2 columns on mobile, 3 columns on tablet/desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 mb-3 sm:mb-5">
         {cards.map((card) => {
           const isRelevant =
             selectedCategory === 'All' ||
             card.category.includes(selectedCategory);
 
+          const handleClick = () => {
+            if (card.isExternal && card.externalUrl) {
+              window.open(card.externalUrl, '_blank', 'noopener,noreferrer');
+            } else {
+              onSelectProgram(`${card.title} ${card.subtitle}`);
+              onOpenCounselling();
+            }
+          };
+
           return (
             <div
               key={card.id}
-              onClick={() => {
-                onSelectProgram(`${card.title} ${card.subtitle}`);
-                onOpenCounselling();
-              }}
+              onClick={handleClick}
               className={`group cursor-pointer rounded-2xl sm:rounded-3xl overflow-hidden bg-[#28060F] border transition-all duration-300 flex flex-col justify-between relative aspect-[3/4] ${
                 isRelevant
                   ? 'border-white/10 hover:border-[#FFD21F]/50 shadow-lg'
@@ -92,19 +116,44 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1A030A] via-[#1A030A]/60 to-transparent" />
 
-              {/* Bottom Card Meta matching mockup */}
+              {/* Optional Top Badge for Skills / Partners */}
+              {card.badge && (
+                <div className="relative z-10 p-3 sm:p-4 self-start">
+                  <span
+                    className={`inline-flex items-center gap-1 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border backdrop-blur-md ${
+                      card.isExternal
+                        ? 'bg-[#2EA33A]/30 border-[#2EA33A]/50 text-[#4ADE80]'
+                        : 'bg-[#FFD21F]/20 border-[#FFD21F]/40 text-[#FFD21F]'
+                    }`}
+                  >
+                    {card.badge}
+                  </span>
+                </div>
+              )}
+
+              {/* Bottom Card Meta */}
               <div className="relative z-10 p-3.5 sm:p-5 mt-auto flex items-end justify-between w-full text-left">
-                <div>
-                  <div className="text-xs sm:text-base font-extrabold text-white leading-tight">
+                <div className="min-w-0 pr-1">
+                  <div className="text-xs sm:text-base font-extrabold text-white leading-tight truncate">
                     {card.title}
                   </div>
-                  <div className="text-[11px] sm:text-xs text-zinc-300 font-medium mt-0.5">
+                  <div className="text-[11px] sm:text-xs text-zinc-300 font-medium mt-0.5 truncate">
                     {card.subtitle}
                   </div>
                 </div>
 
-                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/10 group-hover:bg-[#FFD21F] text-white group-hover:text-black flex items-center justify-center transition-colors shrink-0 ml-2">
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <div
+                  className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center transition-colors shrink-0 ml-1 ${
+                    card.isExternal
+                      ? 'bg-[#2EA33A]/30 text-[#4ADE80] group-hover:bg-[#2EA33A] group-hover:text-white'
+                      : 'bg-white/10 text-white group-hover:bg-[#FFD21F] group-hover:text-black'
+                  }`}
+                >
+                  {card.isExternal ? (
+                    <ExternalLink className="w-3 sm:w-4 h-3 sm:h-4" />
+                  ) : (
+                    <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  )}
                 </div>
               </div>
             </div>
@@ -284,90 +333,6 @@ export const ProgramsBento: React.FC<ProgramsBentoProps> = ({
 
         </div>
 
-      </div>
-
-      {/* ─── SKILLS & CAREER ACCELERATION SECTION ─── */}
-      <div id="skills-section" className="mt-8 sm:mt-12 pt-8 sm:pt-12 border-t border-white/10 text-left space-y-5 sm:space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 px-1">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2EA33A]/15 border border-[#2EA33A]/30 text-[#4ADE80] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2.5">
-              <Sparkles className="w-3.5 h-3.5 text-[#4ADE80]" />
-              <span>CAREER SKILLS • FUTURE PROOF</span>
-            </div>
-            <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Skills for the <span className="text-[#4ADE80]">Real World.</span>
-            </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 font-normal mt-1 max-w-xl leading-relaxed">
-              Don't wait for your degree to complete. Build in-demand, high-income practical skills alongside your academic studies.
-            </p>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 text-xs text-zinc-400 font-semibold">
-            <span>Official Skills Partner:</span>
-            <span className="text-white font-bold tracking-wide flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
-              WELURIK
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80]"></span>
-            </span>
-          </div>
-        </div>
-
-        {/* Digital Marketing Course Card */}
-        <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#2E0713] via-[#24050E] to-[#180309] border border-white/12 p-5 sm:p-8 lg:p-10 overflow-hidden shadow-2xl group">
-          <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#2EA33A]/15 rounded-full blur-[90px] pointer-events-none" />
-          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#FFD21F]/10 rounded-full blur-[80px] pointer-events-none" />
-
-          <div className="relative z-10 space-y-5 sm:space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <span className="px-2.5 py-1 rounded-md bg-[#2EA33A]/20 text-[#4ADE80] text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase border border-[#2EA33A]/30">
-                RECOMMENDED CAREER PROGRAM
-              </span>
-              <span className="text-[11px] sm:text-xs text-zinc-400 font-medium">
-                4 Months Practical • Classroom & Live Online
-              </span>
-            </div>
-
-            <div className="max-w-2xl space-y-2">
-              <h4 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
-                Advanced Digital Marketing & AI Tools Program
-              </h4>
-              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                Complement your commerce degree or competitive exams with practical mastery in Performance Advertising, Search Engine Optimization (SEO), Social Media, and AI Automation with Welurik.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
-              {[
-                { title: '100% Placement Support', desc: 'Job interviews & freelance guidance' },
-                { title: '4-Month Commando Training', desc: '100% hands-on live tools' },
-                { title: 'Meta & Google Ads Mastery', desc: 'Learn performance marketing' },
-                { title: 'Live Client Projects', desc: 'Real ad budgets & verified portfolio' },
-              ].map((feat) => (
-                <div key={feat.title} className="p-3 sm:p-3.5 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#4ADE80]/40 transition-all flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#4ADE80] shrink-0 mt-0.5" />
-                  <div>
-                    <div className="text-xs font-bold text-white leading-tight">{feat.title}</div>
-                    <div className="text-[10px] text-zinc-400 mt-0.5">{feat.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-white/10">
-              <div className="text-xs text-zinc-300 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#4ADE80] animate-pulse" />
-                <span>Next training batch starts soon • Limited student intake</span>
-              </div>
-              <a
-                href="https://welurik.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2EA33A] hover:bg-[#258B30] text-white font-extrabold text-xs sm:text-sm transition-all duration-200 shadow-lg shadow-[#2EA33A]/25 active:scale-95 shrink-0"
-              >
-                <span>Explore Digital Marketing at Welurik.com</span>
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

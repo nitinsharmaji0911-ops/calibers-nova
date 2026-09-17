@@ -54,14 +54,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     setIsCategoryOpen(false);
     setIsMobileMenuOpen(false);
 
-    if (category === 'Career Skills') {
-      const el = document.getElementById('skills-section');
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-    }
-
     const el = document.getElementById('programs');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });

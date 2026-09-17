@@ -123,6 +123,8 @@ export const CounsellingModal: React.FC<CounsellingModalProps> = ({
                     <option value="Class 12th Commerce">Class 12th Commerce</option>
                     <option value="Entrance Prep (CAT/CET/JEE/NEET)">Entrance Prep (CAT/CET/JEE)</option>
                     <option value="Graduation (B.Com/BBA/BCA/MBA)">Graduation (B.Com/BBA/BCA)</option>
+                    <option value="Personality Development & Grooming">Personality Development & Grooming</option>
+                    <option value="Digital Marketing (Welurik)">Digital Marketing (Welurik)</option>
                   </select>
                 </div>
 
