@@ -92,7 +92,7 @@ const column4: ReviewItem[] = [
 ];
 
 const ReviewCard: React.FC<{ review: ReviewItem }> = ({ review }) => (
-  <div className="rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gradient-to-b from-[#68172F] via-[#561327] to-[#440D1D] border border-white/15 hover:border-[#FFD21F]/40 p-3 sm:p-5 lg:p-6 text-left transition-all duration-300 shadow-xl shadow-black/25 group flex flex-col justify-between">
+  <div className="rounded-xl sm:rounded-2xl lg:rounded-3xl bg-gradient-to-b from-[#2D0712] via-[#24050E] to-[#1A030A] border border-white/10 hover:border-[#FFD21F]/40 p-3 sm:p-5 lg:p-6 text-left transition-all duration-300 shadow-xl shadow-black/25 group flex flex-col justify-between">
     <p className="text-[11.5px] sm:text-[13px] lg:text-[14px] text-zinc-200 leading-relaxed font-normal mb-3 sm:mb-5 whitespace-pre-line">
       {review.text}
     </p>
@@ -135,10 +135,10 @@ export const TestimonialsSection: React.FC = () => {
       <div className="relative h-[560px] sm:h-[650px] lg:h-[750px] overflow-hidden mask-marquee-vertical">
         
         {/* Top Gradient Fade Overlay */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-b from-[#63142C] via-[#63142C]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-b from-[#26060F] via-[#26060F]/80 to-transparent z-20" />
 
         {/* Bottom Gradient Fade Overlay */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-t from-[#63142C] via-[#63142C]/80 to-transparent z-20" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 sm:h-24 lg:h-28 bg-gradient-to-t from-[#26060F] via-[#26060F]/80 to-transparent z-20" />
 
         {/* 2-Column on Mobile, 4-Column on Desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 h-full items-start">

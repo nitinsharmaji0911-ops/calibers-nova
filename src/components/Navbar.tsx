@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Check, Menu, X, ArrowUpRight, Phone, Sparkles } from 'lucide-react';
 
-export type CategoryType = 'All' | 'Class 9th' | 'Class 10th' | 'Class 11th' | 'Class 12th';
+export type CategoryType = 'All' | 'Class 9th' | 'Class 10th' | 'Class 11th' | 'Class 12th' | 'Career Skills';
 
 interface NavbarProps {
   selectedCategory: CategoryType;
@@ -15,6 +15,7 @@ const CATEGORIES: CategoryType[] = [
   'Class 10th',
   'Class 11th',
   'Class 12th',
+  'Career Skills',
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -53,6 +54,14 @@ export const Navbar: React.FC<NavbarProps> = ({
     setIsCategoryOpen(false);
     setIsMobileMenuOpen(false);
 
+    if (category === 'Career Skills') {
+      const el = document.getElementById('skills-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+
     const el = document.getElementById('programs');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -64,8 +73,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <nav
         className={`w-full pointer-events-auto transition-[background-color,border-color,box-shadow] duration-300 rounded-full px-3.5 sm:px-6 py-2 sm:py-3 flex items-center justify-between shadow-2xl ${
           scrolled
-            ? 'bg-[#581327]/95 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/30'
-            : 'bg-[#581327]/85 backdrop-blur-lg border border-white/15'
+            ? 'bg-[#25050E]/95 backdrop-blur-xl border border-white/15 shadow-black/80'
+            : 'bg-[#25050E]/85 backdrop-blur-lg border border-white/10'
         }`}
       >
         {/* Left: Brand Logo */}

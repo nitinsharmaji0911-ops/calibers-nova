@@ -12,7 +12,6 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { CounsellingModal } from './components/CounsellingModal';
 import { MetaAdsLanding } from './components/MetaAdsLanding';
-import { DigitalMarketingSection } from './components/DigitalMarketingSection';
 
 export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -58,12 +57,12 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#781B37] via-[#63142C] to-[#4F0E22] text-[#F5F3ED] selection:bg-[#FFD21F] selection:text-black relative antialiased overflow-x-hidden">
-      {/* Atmospheric Lighter Maroon Ambient Glows */}
+    <div className="min-h-screen bg-gradient-to-b from-[#330814] via-[#26060F] to-[#1A030A] text-[#F5F3ED] selection:bg-[#FFD21F] selection:text-black relative antialiased overflow-x-hidden">
+      {/* Atmospheric Balanced Regal Maroon Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[#9E2448]/35 rounded-full blur-[140px]" />
-        <div className="absolute top-[35%] right-[-10%] w-[650px] h-[650px] bg-[#8A1E3E]/30 rounded-full blur-[150px]" />
-        <div className="absolute top-[70%] left-[-10%] w-[650px] h-[650px] bg-[#942044]/25 rounded-full blur-[160px]" />
+        <div className="absolute -top-[15%] left-1/2 -translate-x-1/2 w-[1100px] h-[650px] bg-[#5A0F22]/25 rounded-full blur-[140px]" />
+        <div className="absolute top-[35%] right-[-10%] w-[650px] h-[650px] bg-[#480C1B]/20 rounded-full blur-[150px]" />
+        <div className="absolute top-[70%] left-[-10%] w-[650px] h-[650px] bg-[#520E1F]/20 rounded-full blur-[160px]" />
       </div>
 
       {/* Floating Rounded Navbar with Categories Dropdown */}
@@ -79,15 +78,12 @@ export const App: React.FC = () => {
         {/* Screen 1: Hero Section with Integrated Stats Strip */}
         <HeroSection onOpenCounselling={() => handleOpenCounselling()} />
 
-        {/* Screen 1: Programs Section (Your Next Chapter) */}
+        {/* Screen 1: Programs Section (Your Next Chapter - includes Academic Programs & Career Skills) */}
         <ProgramsBento
           selectedCategory={selectedCategory}
           onSelectProgram={(name) => handleOpenCounselling(name)}
           onOpenCounselling={() => handleOpenCounselling()}
         />
-
-        {/* Featured Career Acceleration: Welurik Digital Marketing Course */}
-        <DigitalMarketingSection />
 
         {/* Screen 2: Learning Method (The Caliber's Nova Method) */}
         <LearningMethod />

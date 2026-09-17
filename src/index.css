@@ -15,7 +15,7 @@
   }
   
   body {
-    background-color: #63142C;
+    background-color: #26060F;
     color: #F5F3ED;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     overflow-x: clip;
@@ -35,10 +35,10 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #4F0E22;
+    background: #1A030A;
   }
   ::-webkit-scrollbar-thumb {
-    background: #8A1E3E;
+    background: #4D0D1D;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {

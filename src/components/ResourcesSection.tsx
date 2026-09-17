@@ -8,7 +8,7 @@ interface ResourcesSectionProps {
 export const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onOpenCounselling }) => {
   return (
     <section id="resources" className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#64152D] via-[#521124] to-[#400B1A] border border-white/15 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
+      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#2A0611] via-[#22050E] to-[#1A030A] border border-white/10 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
         
         {/* Section Header */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
@@ -44,7 +44,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onOpenCounse
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/90 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A030A]/95 via-black/30 to-transparent" />
 
             <div className="absolute bottom-3 left-3 right-3 text-left">
               <span className="text-xs sm:text-base font-extrabold text-white">
@@ -64,7 +64,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onOpenCounse
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/90 via-black/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1A030A]/95 via-black/30 to-transparent" />
 
             <div className="absolute bottom-3 left-3 right-3 text-left">
               <span className="text-xs sm:text-base font-extrabold text-white">
@@ -86,7 +86,7 @@ export const ResourcesSection: React.FC<ResourcesSectionProps> = ({ onOpenCounse
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/90 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A030A]/95 via-black/25 to-transparent" />
 
           <div className="absolute bottom-4 left-4 right-4 text-left">
             <span className="text-xs sm:text-base font-extrabold text-white">

@@ -27,7 +27,7 @@ export const WhyCalibersNova: React.FC<WhyCalibersNovaProps> = ({ onOpenCounsell
 
   return (
     <section className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#64152D] via-[#521124] to-[#400B1A] border border-white/15 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
+      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#2A0611] via-[#22050E] to-[#1A030A] border border-white/10 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
         
         {/* Section Header with Arrow */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
@@ -57,7 +57,7 @@ export const WhyCalibersNova: React.FC<WhyCalibersNovaProps> = ({ onOpenCounsell
             return (
               <div
                 key={item.title}
-                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#6C1832]/80 border border-white/12 hover:border-[#FFD21F]/40 transition-all duration-200 flex flex-col justify-between aspect-[4/3] sm:aspect-auto shadow-md"
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-[#2E0713]/80 border border-white/10 hover:border-[#FFD21F]/40 transition-all duration-200 flex flex-col justify-between aspect-[4/3] sm:aspect-auto shadow-md"
               >
                 <div className="w-8 h-8 rounded-lg bg-[#FFD21F]/15 flex items-center justify-center text-[#FFD21F] mb-3">
                   <Icon className="w-4 h-4" />
@@ -78,10 +78,10 @@ export const WhyCalibersNova: React.FC<WhyCalibersNovaProps> = ({ onOpenCounsell
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/85 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A030A]/85 via-transparent to-transparent pointer-events-none" />
 
           {/* Handwritten note: "Good Concepts. Brighter Futures." */}
-          <div className="absolute top-3 right-3 sm:top-6 sm:right-6 bg-[#1c060e]/90 backdrop-blur-md px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl border border-white/15 text-left shadow-xl max-w-[140px] sm:max-w-none">
+          <div className="absolute top-3 right-3 sm:top-6 sm:right-6 bg-[#22050E]/90 backdrop-blur-md px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl border border-white/15 text-left shadow-xl max-w-[140px] sm:max-w-none">
             <span className="handwriting text-base sm:text-2xl font-bold text-zinc-200 block leading-tight">
               Good Concepts. <br />
               <span className="text-[#FFD21F]">Brighter Futures.</span>
@@ -92,7 +92,7 @@ export const WhyCalibersNova: React.FC<WhyCalibersNovaProps> = ({ onOpenCounsell
         {/* Mini CTA Card: "Your Next Step Starts Here." */}
         <div
           onClick={onOpenCounselling}
-          className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#300e18] to-[#1c060e] border border-white/10 p-5 sm:p-6 flex items-center justify-between transition-all hover:border-[#FFD21F]/40 active:scale-98"
+          className="group cursor-pointer rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#2A0611] to-[#1A030A] border border-white/10 p-5 sm:p-6 flex items-center justify-between transition-all hover:border-[#FFD21F]/40 active:scale-98"
         >
           <div>
             <div className="text-base sm:text-2xl font-extrabold text-white">

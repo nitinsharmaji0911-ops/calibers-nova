@@ -8,7 +8,7 @@ interface FacultySectionProps {
 export const FacultySection: React.FC<FacultySectionProps> = ({ onOpenCounselling }) => {
   return (
     <section id="faculty" className="py-8 sm:py-14 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#64152D] via-[#521124] to-[#400B1A] border border-white/15 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
+      <div className="rounded-[28px] sm:rounded-[36px] bg-gradient-to-b from-[#2A0611] via-[#22050E] to-[#1A030A] border border-white/10 p-5 sm:p-10 lg:p-12 text-left shadow-2xl">
         
         {/* Section Header with Arrow */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
@@ -39,7 +39,7 @@ export const FacultySection: React.FC<FacultySectionProps> = ({ onOpenCounsellin
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#140407]/85 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1A030A]/85 via-transparent to-transparent pointer-events-none" />
 
           {/* Center Translucent Play Button matching mobile mockup */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -49,7 +49,7 @@ export const FacultySection: React.FC<FacultySectionProps> = ({ onOpenCounsellin
           </div>
 
           {/* Handwritten Annotation: "Guiding What's Next." */}
-          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-[#1c060e]/85 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-white/15 text-left shadow-xl">
+          <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-[#22050E]/85 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-white/15 text-left shadow-xl">
             <span className="handwriting text-xl sm:text-2xl font-bold text-zinc-200 block leading-tight">
               Guiding <br />
               What's <span className="text-[#FFD21F]">Next.</span>
