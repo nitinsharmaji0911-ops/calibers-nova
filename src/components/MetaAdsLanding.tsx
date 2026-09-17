@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ExternalLink, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface MetaAdsLandingProps {
@@ -63,25 +63,25 @@ const reviewsCol2: ReviewItem[] = [
 ];
 
 const ReviewCard: React.FC<{ review: ReviewItem }> = ({ review }) => (
-  <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-b from-[#1c080d] via-[#140407] to-[#0c090a] border border-white/[0.08] hover:border-[#FFD21F]/30 text-left transition-all duration-300 shadow-lg group flex flex-col justify-between">
-    <p className="text-[11px] sm:text-xs text-zinc-300 leading-relaxed font-normal mb-2.5">
+  <div className="p-3.5 sm:p-4 rounded-xl bg-white border border-[#E8CCD2] hover:border-[#7A1526]/40 text-left transition-all duration-300 shadow-md shadow-[#3B0B16]/[0.04] group flex flex-col justify-between">
+    <p className="text-[11px] sm:text-xs text-[#4A202A] leading-relaxed font-normal mb-2.5">
       “{review.text}”
     </p>
 
-    <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between gap-1">
+    <div className="pt-2 border-t border-[#F0D8DD] flex items-center justify-between gap-1">
       <div className="min-w-0 flex-1">
-        <div className="text-xs font-bold text-white group-hover:text-[#FFD21F] transition-colors truncate">
+        <div className="text-xs font-bold text-[#2E070F] group-hover:text-[#7A1526] transition-colors truncate">
           {review.name}
         </div>
-        <div className="text-[9.5px] text-zinc-400 font-medium truncate">
+        <div className="text-[9.5px] text-[#7A4B56] font-medium truncate">
           {review.degree}
         </div>
-        <div className="text-[10px] text-emerald-400 font-semibold truncate mt-0.5">
+        <div className="text-[10px] text-[#059669] font-bold truncate mt-0.5">
           {review.result}
         </div>
       </div>
-      <div className="shrink-0 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-[9px] font-mono text-zinc-400">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0"></span>
+      <div className="shrink-0 flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-[9px] font-mono text-emerald-700">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0"></span>
         <span>Verified</span>
       </div>
     </div>
@@ -128,7 +128,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           particleCount: 50,
           spread: 60,
           origin: { y: 0.6 },
-          colors: ['#FFD21F', '#ffffff'],
+          colors: ['#7A1526', '#FFD21F', '#2EA33A'],
         });
       } catch (err) {
         console.error(err);
@@ -137,10 +137,16 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
   };
 
   return (
-    <div className="min-h-screen bg-[#0c090a] text-zinc-100 font-sans selection:bg-[#FFD21F] selection:text-black flex flex-col justify-between">
-      {/* 1. Floating Pill Header matching main website (non-clickable hamburger) */}
-      <header className="sticky top-3 sm:top-4 z-50 px-3 sm:px-4 max-w-lg mx-auto w-full">
-        <div className="w-full bg-[#180409]/90 backdrop-blur-xl border border-white/10 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between shadow-2xl shadow-black/80">
+    <div className="min-h-screen bg-[#FAF2F4] text-[#2E070F] font-sans selection:bg-[#7A1526] selection:text-white flex flex-col justify-between relative overflow-x-hidden">
+      {/* Subtle Light Maroon Atmosphere */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[750px] h-[500px] bg-[#E8CBD1]/40 rounded-full blur-[120px]" />
+        <div className="absolute top-[60%] right-[-10%] w-[500px] h-[400px] bg-[#F0D5DA]/35 rounded-full blur-[140px]" />
+      </div>
+
+      {/* 1. Floating Pill Header (Signature Dark Maroon/Burgundy Pill matching main website) */}
+      <header className="sticky top-3 sm:top-4 z-50 px-3 sm:px-4 max-w-lg mx-auto w-full relative">
+        <div className="w-full bg-[#180409]/95 backdrop-blur-xl border border-white/10 rounded-full px-4 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between shadow-2xl shadow-[#2E070F]/20">
           {/* Logo & Brand */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center p-0.5 overflow-hidden border border-white/20 shrink-0">
@@ -167,50 +173,50 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
       </header>
 
       {/* 2. Main Body */}
-      <main className="flex-1 max-w-lg mx-auto w-full px-4 sm:px-6 py-6 sm:py-10 space-y-8">
-        {/* Title */}
+      <main className="flex-1 max-w-lg mx-auto w-full px-4 sm:px-6 py-6 sm:py-10 space-y-7 relative z-10">
+        {/* Title & Moving Subtitle */}
         <div className="text-center space-y-2">
-          <div className="inline-block text-[10px] sm:text-[11px] font-semibold text-[#FFD21F] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#FFD21F]/10 border border-[#FFD21F]/20">
+          <div className="inline-block text-[10px] sm:text-[11px] font-bold text-[#7A1526] uppercase tracking-wider px-3 py-1 rounded-full bg-[#7A1526]/10 border border-[#7A1526]/20">
             RTMNU • Commerce Backlog Cell
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-[#2E070F] tracking-tight leading-tight">
             Clear Your AT/KT on Next Attempt
           </h1>
           {/* Continuous Moving Line */}
           <div className="relative w-full overflow-hidden mask-marquee-horizontal py-1 select-none">
-            <div className="flex gap-4 w-max animate-marquee-left whitespace-nowrap text-xs sm:text-sm text-zinc-400 font-medium">
+            <div className="flex gap-4 w-max animate-marquee-left whitespace-nowrap text-xs sm:text-sm text-[#6E424D] font-medium">
               {[0, 1].map((groupIdx) => (
                 <div key={groupIdx} className="flex items-center gap-4 shrink-0">
                   <span>
-                    BBA • B.Com • BCCA • Mentored by Founder&nbsp;&nbsp;<span className="text-white font-semibold">Pankaj Agrawal Sir</span>
+                    BBA • B.Com • BCCA • Mentored by Founder&nbsp;&nbsp;<span className="text-[#2E070F] font-bold">Pankaj Agrawal Sir</span>
                   </span>
-                  <span className="text-[#FFD21F] text-xs">✦</span>
+                  <span className="text-[#7A1526] text-xs">✦</span>
                   <span>
-                    BBA • B.Com • BCCA • Mentored by Founder&nbsp;&nbsp;<span className="text-white font-semibold">Pankaj Agrawal Sir</span>
+                    BBA • B.Com • BCCA • Mentored by Founder&nbsp;&nbsp;<span className="text-[#2E070F] font-bold">Pankaj Agrawal Sir</span>
                   </span>
-                  <span className="text-[#FFD21F] text-xs">✦</span>
+                  <span className="text-[#7A1526] text-xs">✦</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Lead Capture Form Card */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-[#141113] border border-white/[0.08] shadow-2xl">
+        {/* Lead Capture Form Card (Light Maroon Theme) */}
+        <div className="p-5 sm:p-6 rounded-2xl bg-white/95 border border-[#EACCD2] shadow-xl shadow-[#3B0B16]/[0.06]">
           {isSuccess ? (
             <div className="py-8 text-center space-y-3">
-              <div className="w-12 h-12 bg-[#FFD21F]/10 border border-[#FFD21F]/30 rounded-full flex items-center justify-center mx-auto text-[#FFD21F]">
+              <div className="w-12 h-12 bg-[#7A1526]/10 border border-[#7A1526]/30 rounded-full flex items-center justify-center mx-auto text-[#7A1526]">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold text-white">Application Received!</h3>
-              <p className="text-xs text-zinc-300 max-w-xs mx-auto leading-relaxed">
-                Thank you, <strong className="text-white">{studentName}</strong>! Our academic desk will call you at <strong className="text-white">{phone}</strong> and send your passing roadmap to <strong className="text-white">{email}</strong>.
+              <h3 className="text-base font-bold text-[#2E070F]">Application Received!</h3>
+              <p className="text-xs text-[#5A2D37] max-w-xs mx-auto leading-relaxed">
+                Thank you, <strong className="text-[#2E070F]">{studentName}</strong>! Our academic desk will call you at <strong className="text-[#2E070F]">{phone}</strong> and send your passing roadmap to <strong className="text-[#2E070F]">{email}</strong>.
               </p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-3 text-left">
               <div>
-                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                <label className="block text-[11px] font-semibold text-[#4A202A] mb-1">
                   Full Name
                 </label>
                 <input
@@ -219,12 +225,12 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
                   placeholder="Enter your full name"
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
+                  className="w-full px-3 py-2 rounded-lg bg-[#FAF3F5] border border-[#DFC0C7] text-[#2E070F] text-xs sm:text-sm placeholder:text-[#9C757F] focus:outline-none focus:border-[#7A1526] focus:ring-1 focus:ring-[#7A1526] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                <label className="block text-[11px] font-semibold text-[#4A202A] mb-1">
                   Mobile Number
                 </label>
                 <input
@@ -235,12 +241,12 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   value={phone}
                   onChange={handlePhoneChange}
                   placeholder="10-digit mobile number"
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
+                  className="w-full px-3 py-2 rounded-lg bg-[#FAF3F5] border border-[#DFC0C7] text-[#2E070F] text-xs sm:text-sm placeholder:text-[#9C757F] focus:outline-none focus:border-[#7A1526] focus:ring-1 focus:ring-[#7A1526] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                <label className="block text-[11px] font-semibold text-[#4A202A] mb-1">
                   Email Address
                 </label>
                 <input
@@ -249,12 +255,12 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="your.email@example.com"
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs sm:text-sm placeholder:text-zinc-600 focus:outline-none focus:border-[#FFD21F]"
+                  className="w-full px-3 py-2 rounded-lg bg-[#FAF3F5] border border-[#DFC0C7] text-[#2E070F] text-xs sm:text-sm placeholder:text-[#9C757F] focus:outline-none focus:border-[#7A1526] focus:ring-1 focus:ring-[#7A1526] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                <label className="block text-[11px] font-semibold text-[#4A202A] mb-1">
                   Course
                 </label>
                 <div className="grid grid-cols-4 gap-1.5">
@@ -263,10 +269,10 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
                       type="button"
                       key={deg}
                       onClick={() => setDegree(deg)}
-                      className={`py-1.5 rounded-md text-xs font-semibold border transition-all ${
+                      className={`py-1.5 rounded-md text-xs font-bold border transition-all ${
                         degree === deg
-                          ? 'bg-[#FFD21F] text-black border-[#FFD21F]'
-                          : 'bg-black/20 text-zinc-400 border-white/[0.08] hover:border-white/20'
+                          ? 'bg-[#7A1526] text-white border-[#7A1526] shadow-sm'
+                          : 'bg-[#FAF3F5] text-[#5A2D37] border-[#DFBEC5] hover:border-[#7A1526]/40'
                       }`}
                     >
                       {deg}
@@ -276,20 +282,20 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               </div>
 
               <div>
-                <label className="block text-[11px] font-medium text-zinc-400 mb-1">
+                <label className="block text-[11px] font-semibold text-[#4A202A] mb-1">
                   Backlog Subject
                 </label>
                 <select
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-black/40 border border-white/[0.08] text-white text-xs focus:outline-none focus:border-[#FFD21F]"
+                  className="w-full px-3 py-2 rounded-lg bg-[#FAF3F5] border border-[#DFC0C7] text-[#2E070F] text-xs focus:outline-none focus:border-[#7A1526] focus:ring-1 focus:ring-[#7A1526]"
                 >
-                  <option value="Financial Accounts" className="bg-[#141113]">Financial Accounts</option>
-                  <option value="Cost Accounting" className="bg-[#141113]">Cost Accounting</option>
-                  <option value="Corporate Accounts" className="bg-[#141113]">Corporate Accounts</option>
-                  <option value="Business Statistics / Maths" className="bg-[#141113]">Business Stats / Maths</option>
-                  <option value="Income Tax" className="bg-[#141113]">Income Tax</option>
-                  <option value="Multiple Backlogs" className="bg-[#141113]">Multiple Subjects</option>
+                  <option value="Financial Accounts">Financial Accounts</option>
+                  <option value="Cost Accounting">Cost Accounting</option>
+                  <option value="Corporate Accounts">Corporate Accounts</option>
+                  <option value="Business Statistics / Maths">Business Stats / Maths</option>
+                  <option value="Income Tax">Income Tax</option>
+                  <option value="Multiple Backlogs">Multiple Subjects</option>
                 </select>
               </div>
 
@@ -297,7 +303,7 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 rounded-lg bg-[#FFD21F] hover:bg-[#e6bd1b] text-black font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-50 mt-2 shadow-md shadow-black/40"
+                className="w-full py-2.5 rounded-lg bg-[#FFD21F] hover:bg-[#E8BC0C] text-black font-extrabold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5 active:scale-95 disabled:opacity-50 mt-2 shadow-md shadow-[#FFD21F]/30"
               >
                 {isSubmitting ? (
                   <span>Submitting...</span>
@@ -312,22 +318,82 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
           )}
         </div>
 
-        {/* 3. Verified Student Reviews (Infinite 2-Column Vertical Marquee Effect from Real Website) */}
+        {/* 3. Welurik Digital Marketing Upskilling Section */}
+        <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#EACCD2] shadow-xl shadow-[#3B0B16]/[0.06] text-left relative overflow-hidden group">
+          {/* Subtle Ambient Accent */}
+          <div className="absolute top-0 right-0 w-36 h-36 bg-[#2EA33A]/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 space-y-3.5">
+            <div className="flex items-center justify-between gap-2 flex-wrap">
+              <div className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-bold text-[#1E7528] uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#2EA33A]/10 border border-[#2EA33A]/25">
+                <Sparkles className="w-3 h-3 text-[#2EA33A]" />
+                <span>Career Acceleration • Partner Platform</span>
+              </div>
+              <span className="text-[11px] font-bold text-[#7A1526]">
+                Powered by Welurik
+              </span>
+            </div>
+
+            <div>
+              <h2 className="text-lg sm:text-xl font-black text-[#2E070F] tracking-tight leading-tight">
+                Want High-Paying Career Skills Along With Your Degree?
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5A2D37] mt-1 leading-relaxed">
+                Master digital marketing, performance ads, and AI tools with Nagpur’s premier career school, <strong className="text-[#2E070F]">Welurik</strong>.
+              </p>
+            </div>
+
+            {/* Feature Bullets */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 text-xs text-[#4A202A]">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#2EA33A] shrink-0" />
+                <span>100% Placement & Freelance Support</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#2EA33A] shrink-0" />
+                <span>4-Month Commando Level Practical Training</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#2EA33A] shrink-0" />
+                <span>Google Ads, Meta Ads & SEO Mastery</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#2EA33A] shrink-0" />
+                <span>Live Client Projects & Assignments</span>
+              </div>
+            </div>
+
+            {/* External Redirect Button to welurik.com */}
+            <div className="pt-2">
+              <a
+                href="https://welurik.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#2EA33A] hover:bg-[#258B30] text-white font-bold text-xs sm:text-sm transition-all shadow-md shadow-[#2EA33A]/25 active:scale-95"
+              >
+                <span>Explore Digital Marketing at Welurik.com</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 4. Verified Student Reviews (2-Column Vertical Marquee on Light Maroon) */}
         <div className="pt-2">
           <div className="text-center mb-3">
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[#FFD21F]">
+            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#7A1526]">
               VERIFIED AT/KT TURNAROUNDS
             </span>
-            <h3 className="text-sm sm:text-base font-bold text-white mt-0.5">
+            <h3 className="text-sm sm:text-base font-bold text-[#2E070F] mt-0.5">
               Students Who Cleared Backlogs
             </h3>
           </div>
 
-          {/* 2-Column Marquee matching TestimonialsSection.tsx */}
+          {/* 2-Column Marquee */}
           <div className="relative h-[340px] sm:h-[380px] overflow-hidden mask-marquee-vertical rounded-xl">
             {/* Top & Bottom Fade Overlays */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#0c090a] via-[#0c090a]/80 to-transparent z-20" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#0c090a] via-[#0c090a]/80 to-transparent z-20" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-[#FAF2F4] via-[#FAF2F4]/80 to-transparent z-20" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#FAF2F4] via-[#FAF2F4]/80 to-transparent z-20" />
 
             <div className="grid grid-cols-2 gap-2.5 h-full items-start">
               {/* Column 1 - Moving Up */}
@@ -348,11 +414,11 @@ export const MetaAdsLanding: React.FC<MetaAdsLandingProps> = ({ onNavigateHome }
         </div>
       </main>
 
-      {/* 4. Footer (No Mahal Nagpur) */}
-      <footer className="py-4 border-t border-white/[0.06] text-center text-xs text-zinc-500">
-        <p>© 2026 Caliber’s Nova</p>
-        <p className="mt-0.5 text-zinc-400">
-          Email: <a href="mailto:info@calibernova.in" className="text-zinc-200 hover:text-white">info@calibernova.in</a>
+      {/* 5. Footer (Light Maroon) */}
+      <footer className="py-4 border-t border-[#E8CCD2] text-center text-xs text-[#6E424D] relative z-10">
+        <p className="font-semibold text-[#4A202A]">© 2026 Caliber’s Nova</p>
+        <p className="mt-0.5">
+          Email: <a href="mailto:info@calibernova.in" className="text-[#7A1526] hover:underline font-medium">info@calibernova.in</a>
         </p>
       </footer>
     </div>
